@@ -205,7 +205,7 @@ ALTER SEQUENCE code_tables_id_seq OWNED BY code_tables.id;
 CREATE TABLE communities (
     id integer NOT NULL,
     name character varying(255),
-    desciption text,
+    description text,
     address text,
     tumbon_id integer,
     created_at timestamp without time zone,
@@ -1707,7 +1707,7 @@ ALTER SEQUENCE my_cars_id_seq OWNED BY my_cars.id;
 CREATE TABLE places (
     id integer NOT NULL,
     name character varying(255),
-    desciption text,
+    description text,
     address text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,

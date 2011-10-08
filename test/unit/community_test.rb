@@ -14,7 +14,7 @@ end
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  desciption :text
+#  description :text
 #  address    :text
 #  tumbon_id  :integer
 #  created_at :datetime

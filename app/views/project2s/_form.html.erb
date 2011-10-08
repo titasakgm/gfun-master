@@ -2,7 +2,9 @@
   <%= f.error_notification %>
 
   <div class="inputs">
+    <%= f.input :code, :label => "รหัสโครงการ"  %>
     <%= f.input :title, :label => "ชื่อโครงการ" , :input_html => {:size => 80} %>
+    
     <fieldset>
     <legend>เลือกกลุ่มเป้าหมาย</legend>
     <div class="help" href="#help1"></div>
@@ -53,7 +55,11 @@
 
       <%= m.association :target, :label => "กลุ่มเป้าหมาย" %>
       <%= m.input :density, :collection => 0..4, :label => "ความเข้มข้น"%>
-      <%= m.input :year1_n, :label => "จำนวนเป้าหมายในปีที่ 1" %>
+      <div>
+        <div style="float:left;padding-right:10px"><%= m.input :year1_n, :label => "จำนวนเป้าหมายในปีที่ 1" %></div>
+        <div style="float:left;padding-right:10px"><%= m.input :result_year1_n, :label => "จำนวนกลุ่มเป้าหมายที่ได้ดำเนินแล้ว" %></div>
+        <div style="clear:both"></div>
+      </div>
       <%= m.input :year2_n, :label => "จำนวนเป้าหมายในปีที่ 2" %>
       <%= m.input :year3_n, :label => "จำนวนเป้าหมายในปีที่ 3" %>
       </div>

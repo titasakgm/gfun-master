@@ -13,7 +13,7 @@
 <% @places.each do |place| %>
   <tr>
     <td><%= place.name %></td>
-    <td><%= place.desciption %></td>
+    <td><%= place.description %></td>
     <td><%= place.address %></td>
    <td><%= link_to 'แสดง', place %></td>
     <td><%= link_to 'แก้ไข', edit_place_path(place) %></td>

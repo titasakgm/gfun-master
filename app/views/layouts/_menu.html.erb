@@ -1,15 +1,19 @@
-<div class="span-8" id="logo">
-  <%= link_to (image_tag "logo.png"), root_path %>
-</div>
-<div class="span-16 last large" id="menu">
-  <div>
-    <%= link_to "โครงการ", project2s_path, :class => "span-2" if current_user %>
-    <%= link_to "รายงาน", site_report_path, :class => "span-2" if current_user %>
+<div class="span-6" id="logo">
+     	<%= link_to (image_tag "logo.png"), root_path %>
+     </div>
+     <div class="span-18 last" id="menu">
+
+		<div>
+		<%= link_to "โครงการ", project2s_path, :class => "span-2" if current_user %>
+		<%= link_to "รายงาน", site_report_path, :class => "span-2" if current_user %>
     <!-- <a href="#"  class="span-2">AboutUs</a> -->
-    <a href="<%= site_workflow_path %>"  class="span-3">การทำงานฯ</a>
+    <a href="<%= site_workflow_path %>"  class="span-4">การทำงานของโปรแกรม</a
     <%= link_to "Admin", site_admin_path,:class => "span-2" if current_user and current_user.login == "root" %>
-    <%= link_to "ลงทะเบียน", new_account_path,:class => "span-2" unless current_user %>
+    <%= link_to "Register", new_account_path,:class => "span-2" unless current_user %>
     <%= link_to "Log In", new_user_session_path,:class => "span-2" unless current_user %>
+
     <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?",:class => "span-2" if current_user %>
-  </div>
+
+		</div>
 </div>
+

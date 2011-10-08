@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930060311) do
+ActiveRecord::Schema.define(:version => 109) do
 
   create_table "activities", :force => true do |t|
     t.string   "title"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20110930060311) do
 
   create_table "communities", :force => true do |t|
     t.string   "name"
-    t.text     "desciption"
+    t.text     "description"
     t.text     "address"
     t.integer  "tumbon_id"
     t.datetime "created_at"
@@ -426,6 +426,7 @@ ActiveRecord::Schema.define(:version => 20110930060311) do
     t.datetime "updated_at"
     t.integer  "target_id"
     t.boolean  "is_check"
+    t.integer  "result_year1_n"
   end
 
   create_table "method2s", :force => true do |t|
@@ -494,7 +495,7 @@ ActiveRecord::Schema.define(:version => 20110930060311) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
-    t.text     "desciption"
+    t.text     "description"
     t.text     "address"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -594,6 +595,7 @@ ActiveRecord::Schema.define(:version => 20110930060311) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "cover_year"
+    t.string   "code"
   end
 
   create_table "projects", :force => true do |t|

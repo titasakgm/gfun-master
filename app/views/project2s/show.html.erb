@@ -2,9 +2,10 @@
 <h3>กลุ่มเป้าหมาย</h3>
 <p>
 <%  @project2.targets.each  do |t|  %>
-  <%= "#{t.title} "  %>
+  <%= " #{t.title} "  %>
 <% end %>
 </p>
+<h3>รหัสโครงการ : <%= @project2.code %></h3>
 <h3>ชื่อโครงการ : <%= @project2.title %></h3>
 <h3>ระยะเวลาดำเนินโครงการ</h3>
 <p>

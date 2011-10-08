@@ -13,7 +13,7 @@
 <% @communities.each do |community| %>
   <tr>
     <td><%= community.name %></td>
-    <td><%= community.desciption %></td>
+    <td><%= community.description %></td>
     <td><%= community.address %></td>
     <td><%= link_to 'แสดง', community %></td>
     <td><%= link_to 'แก้ไข', edit_community_path(community) %></td>

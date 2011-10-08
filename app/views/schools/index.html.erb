@@ -2,13 +2,8 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Changwat</th>
-    <th>Ccode</th>
-    <th>Amphur</th>
-    <th>Acode</th>
-    <th>Tambon</th>
-    <th>Tcode</th>
+    <th>ชื่อสถานศึกษา</th>
+    <th>สังกัด</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,15 +12,10 @@
 <% @schools.each do |school| %>
   <tr>
     <td><%= school.name %></td>
-    <td><%= school.changwat %></td>
-    <td><%= school.ccode %></td>
-    <td><%= school.amphur %></td>
-    <td><%= school.acode %></td>
-    <td><%= school.tambon %></td>
-    <td><%= school.tcode %></td>
-    <td><%= link_to 'แสดง', school %></td>
-    <td><%= link_to 'แก้ไข', edit_school_path(school) %></td>
-    <td><%= link_to 'ลบ', school, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= school.category.name %></td>
+    <td><%= link_to 'Show', school %></td>
+    <td><%= link_to 'Edit', edit_school_path(school) %></td>
+    <td><%= link_to 'Destroy', school, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
