@@ -1,0 +1,15 @@
+<%= simple_form_for(@problems_user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :problem, :prompt => "เลือกปัญหา" %>
+    <%= f.input :flag, :collection => Problem::FLAG, :as => :radio %>
+
+
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

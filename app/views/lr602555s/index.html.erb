@@ -1,0 +1,41 @@
+<h1>Listing lr60_2555s</h1>
+<h3>โครงการกิจกรรม จำนวนกลุ่มเป้าหมาย ประมาณการและประเมินทรัพยากรบุคคลที่ต้องใช้ในการดำเนินงานโครงการปี 2555</h3>
+<table>
+  <tr>
+    <!-- <th>User</th> -->
+    <th>ชื่อโครงการ/กิจกรรม</th>
+    <th>กลุ่มเป้าหมาย</th>
+    <th>ลักษณะกิจกรรม</th>
+    <th>จำนวนกลุ่มเป้าหมาย ปี 2555</th>
+    <th>ประเภททีมงานที่ต้องใช้</th>
+    <th>จำนวนทีมงานที่ต้องใช้</th>
+    <th>หมายเหตุ</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @lr602555s.each do |lr602555| %>
+  <tr>
+    <!-- <td><%= lr602555.user_id %></td> -->
+    <td><%= lr602555.project_name %></td>
+    <td><%= lr602555.target_name %></td>
+    <td><%= ApplicationController::ACTIVITY_TYPE.index(lr602555.activity_type.to_i) %></td>
+    <!-- <td><%= lr602555.activity_type %></td> -->
+    <td><%= lr602555.target_no %></td>
+    <td><%= ApplicationController::TEAM_TYPE.index(lr602555.team_type.to_i) %></td>
+    <!-- <td><%= lr602555.team_type %></td> -->
+    <td><%= lr602555.team_no %></td>
+    <td><%= lr602555.comment %></td>
+    <td><%= link_to 'แสดง', lr602555 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr602555_path(lr602555) %></td>
+    <td><%= link_to 'ลบ', lr602555, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr602555', new_lr602555_path %>
+

@@ -1,0 +1,25 @@
+<h1>Listing social_problems</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @social_problems.each do |social_problem| %>
+  <tr>
+    <td><%= social_problem.title %></td>
+    <td><%= social_problem.description %></td>
+    <td><%= link_to 'แสดง', social_problem %></td>
+    <td><%= link_to 'แก้ไข', edit_social_problem_path(social_problem) %></td>
+    <td><%= link_to 'ลบ', social_problem, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Social problem', new_social_problem_path %>

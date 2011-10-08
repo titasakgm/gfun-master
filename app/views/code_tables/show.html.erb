@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @code_table.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @code_table.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_code_table_path(@code_table) %> |
+<%= link_to 'Back', code_tables_path %>

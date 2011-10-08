@@ -1,0 +1,13 @@
+<%= simple_form_for(@threat_type) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+    <%= f.input :weight %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

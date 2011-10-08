@@ -1,0 +1,36 @@
+<h1>Listing lr70s</h1>
+
+<table>
+<caption>ผลการดำเนินงาน จำนวนกลุ่มเป้าหมายที่ได้รับกิจกรรมป้องกันแก้ไขปัญหาอนามัยเจริญพันธุ์และเอดส์ ในปี 2554</caption>
+  <tr>
+  <th rowspan=2>ชื่อโครงการ/กิจกรรม</th><th rowspan=2>กลุ่มเป้าหมาย</th><th colspan=4>จำนวนทีมงานที่ได้รับการพัฒนาสมรรถนะ ปี 2554</th>
+
+	 <th rowspan=2></th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+
+	</tr>
+	<tr>
+	<th>ไตรมาส 1</th><th>ไตรมาส 2</th><th>ไตรมาส 3</th><th>ไตรมาส 4</th>
+</tr>
+
+<% @lr70s.each do |lr70| %>
+  <tr>
+    <!-- <td><%= lr70.user_id %></td> -->
+    <td><%= lr70.project_name %></td>
+    <td><%= ApplicationController::TARGET_GROUP.index(lr70.target_name) %></td>
+    <td><%= lr70.q1 %></td>
+    <td><%= lr70.q2 %></td>
+    <td><%= lr70.q3 %></td>
+    <td><%= lr70.q4 %></td>
+    <td><%= link_to 'แสดง', lr70 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr70_path(lr70) %></td>
+    <td><%= link_to 'ลบ', lr70, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr70', new_lr70_path %>
+

@@ -1,0 +1,27 @@
+<%= form_for(@lr20) do |f| %>
+  <% if @lr20.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr20.errors.count, "error") %> prohibited this lr20 from being saved:</h2>
+
+      <ul>
+      <% @lr20.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag 'lr20[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :behavior_problem, "ปัญหาเชิงพฤติกรรม" %><br />
+    <%= f.text_field :behavior_problem %>
+  </div>
+  <div class="field">
+    <%= f.label :status, "สถานะ" %><br />
+    <%= f.select(:status, ApplicationController::HAVE_STATUS , {:prompt => 'เลือกสถานะ'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

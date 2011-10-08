@@ -1,0 +1,83 @@
+class Lr40sController < ApplicationController
+  # GET /lr40s
+  # GET /lr40s.xml
+  def index
+    @lr40s = Lr40.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @lr40s }
+    end
+  end
+
+  # GET /lr40s/1
+  # GET /lr40s/1.xml
+  def show
+    @lr40 = Lr40.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @lr40 }
+    end
+  end
+
+  # GET /lr40s/new
+  # GET /lr40s/new.xml
+  def new
+    @lr40 = Lr40.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @lr40 }
+    end
+  end
+
+  # GET /lr40s/1/edit
+  def edit
+    @lr40 = Lr40.find(params[:id])
+  end
+
+  # POST /lr40s
+  # POST /lr40s.xml
+  def create
+    @lr40 = Lr40.new(params[:lr40])
+
+    respond_to do |format|
+      if @lr40.save
+        format.html { redirect_to(@lr40, :notice => 'Lr40 was successfully created.') }
+        format.xml  { render :xml => @lr40, :status => :created, :location => @lr40 }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @lr40.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /lr40s/1
+  # PUT /lr40s/1.xml
+  def update
+    @lr40 = Lr40.find(params[:id])
+
+    respond_to do |format|
+      if @lr40.update_attributes(params[:lr40])
+        format.html { redirect_to(@lr40, :notice => 'Lr40 was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @lr40.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /lr40s/1
+  # DELETE /lr40s/1.xml
+  def destroy
+    @lr40 = Lr40.find(params[:id])
+    @lr40.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(lr40s_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

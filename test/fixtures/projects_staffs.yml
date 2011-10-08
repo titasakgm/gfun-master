@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  staff_id: 1
+  year: 2011-02-16
+  amount: 1
+
+two:
+  project_id: 1
+  staff_id: 1
+  year: 2011-02-16
+  amount: 1
+
+
+# == Schema Information
+#
+# Table name: projects_staffs
+#
+#  id         :integer         not null, primary key
+#  project_id :integer
+#  staff_id   :integer
+#  year1      :integer
+#  amount1    :integer
+#  year2      :integer
+#  amount2    :integer
+#  year3      :integer
+#  amount3    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

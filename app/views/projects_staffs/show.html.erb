@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @projects_staff.project_id %>
+</p>
+
+<p>
+  <b>Staff:</b>
+  <%= @projects_staff.staff_id %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @projects_staff.year %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @projects_staff.amount %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_projects_staff_path(@projects_staff) %> |
+<%= link_to 'Back', projects_staffs_path %>

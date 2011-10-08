@@ -1,0 +1,42 @@
+<h1>ข้อมูลเยาวชนในสถานประกอบการ(อายุ22-24ปี)</h1>
+
+*สถานประกอบการในที่นี้หมายถึง โรงงาน สำนักงาน ห้างร้าน สถานบันเทิง และกลุ่มอาชีพต่างๆที่มีการรวมตัวกัน เช่นกลุ่มประมง กลุ่มทำขนมจีน
+<br><br>	
+<table>
+  <tr>
+    <th>สถานประกอบการ</th>
+    <th>จำนวนเยาวชนชาย</th>
+    <th>จำนวนเยาวชนหญิง</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @places_users.each do |places_user| %>
+  <tr>
+    <td><%= places_user.place.name rescue nil%></td>
+    <td><%= places_user.male_no %></td>
+    <td><%= places_user.female_no %></td>
+    <td><%= link_to 'แสดง', places_user %></td>
+    <td><%= link_to 'แก้ไข', edit_places_user_path(places_user) %></td>
+    <td><%= link_to 'ลบ', places_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<table>
+<thead><tr><th>รวมจำนวนสถานประกอบการ</th><th>รวมจำนวนเยาวชนชาย</th><th>รวมจำนวนเยาวชนหญิง</th><th>รวมจำนวนเยาวชนทั้งหมด</th></tr></thead>
+<tbody>
+  <tr>
+    <td><%= current_user.places_users.count %></td>
+    <td><%= m = current_user.places_users.sum(:male_no) %></td>
+    <td><%= f = current_user.places_users.sum(:female_no) %></td>
+    <td><%= m + f %></td>
+  </tr>
+</tbody>
+</table>
+
+<%= link_to 'เพิ่มสถานประกอบการ', new_places_user_path %>

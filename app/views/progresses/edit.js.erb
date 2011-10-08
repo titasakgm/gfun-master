@@ -1,0 +1,6 @@
+//$("#progress_output").html("<%= escape_javascript render(:file => 'progresses/_form.html.erb') %>");
+
+$("body").append("<div id='<%= @id %>'></div>");
+$("#<%= @id %>").html("<%= escape_javascript render(:file => 'progresses/_form.html.erb') %>");
+$("#<%= @id %>").dialog({ title : '<%= @staff_title %> progress'});
+

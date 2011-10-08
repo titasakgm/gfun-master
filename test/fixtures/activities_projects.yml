@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  activity_id: 1
+  project_id: 1
+  freq: MyString
+  provider: MyString
+  sponsor: MyString
+
+two:
+  activity_id: 1
+  project_id: 1
+  freq: MyString
+  provider: MyString
+  sponsor: MyString
+
+
+# == Schema Information
+#
+# Table name: activities_projects
+#
+#  id          :integer         not null, primary key
+#  activity_id :integer
+#  project_id  :integer
+#  freq        :string(255)
+#  provider    :string(255)
+#  sponsor     :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  weight      :integer
+#
+

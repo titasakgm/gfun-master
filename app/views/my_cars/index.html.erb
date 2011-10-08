@@ -1,0 +1,23 @@
+<h1>Listing my_cars</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @my_cars.each do |my_car| %>
+  <tr>
+    <td><%= my_car.name %></td>
+    <td><%= link_to 'แสดง', my_car %></td>
+    <td><%= link_to 'แก้ไข', edit_my_car_path(my_car) %></td>
+    <td><%= link_to 'ลบ', my_car, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New My car', new_my_car_path %>

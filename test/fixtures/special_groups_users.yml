@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  special_group_id: 1
+  user_id: 1
+  flag: MyString
+  amount: 1
+
+two:
+  special_group_id: 1
+  user_id: 1
+  flag: MyString
+  amount: 1
+
+# == Schema Information
+#
+# Table name: special_groups_users
+#
+#  id               :integer         not null, primary key
+#  special_group_id :integer
+#  user_id          :integer
+#  flag             :string(255)
+#  amount           :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+

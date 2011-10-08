@@ -1,0 +1,50 @@
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="data_table">
+<thead>
+  <tr>
+    <th>#</th>
+   <th>สถานที่</th>
+    <th>จำนวนเยาวชน</th>
+    <th></th>
+
+  </tr>
+</thead>
+<tfoot>
+  <tr>
+    <th>#</th>
+    <th>สถานที่</th>
+    <th>จำนวนเยาวชน</th>
+    <th></th>
+
+  </tr>
+</tfoot>
+<tbody>
+<tr>
+<td>1</td>
+<td>โรงเรียน</td>
+<td><%= @total_female + @total_male %></td>
+<td><a href="/form/edit_school" class="edit">edit</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>สถานประกอบการ</td>
+<td><%= @place_youth %></td>
+<td><a href="/form/edit_place" class="edit_place">edit</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ชุมชน</td>
+<td><%= @com_youth %></td>
+<td><a href="/form/edit_com" class="edit_com">edit</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>รวม</td>
+<td><%= @com_youth + @place_youth + @total_female + @total_male %></td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+<%= render :partial => "layouts/tbl_script" %>
+<%= render :partial => "layouts/js_script" %>
+

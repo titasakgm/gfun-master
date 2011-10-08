@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @schools_user.user_id %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @schools_user.school_id %>
+</p>
+
+<p>
+  <b>Male no:</b>
+  <%= @schools_user.male_no %>
+</p>
+
+<p>
+  <b>Female no:</b>
+  <%= @schools_user.female_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_schools_user_path(@schools_user) %> |
+<%= link_to 'Back', schools_users_path %>

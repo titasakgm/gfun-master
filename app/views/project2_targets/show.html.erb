@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project2:</b>
+  <%= @project2_target.project2_id %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%= @project2_target.target_id %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_project2_target_path(@project2_target) %> |
+<%= link_to 'Back', project2_targets_path %>

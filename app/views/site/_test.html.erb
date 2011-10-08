@@ -1,0 +1,9 @@
+<h1>Site#test</h1>
+<p>Find me in app/views/site/test.html.erb</p>
+<% form_tag "/test", :remote=>true, :id => 'myform' do %>
+        Enter the public url:<%= text_field_tag 'url' ,'', :size => 80 %>
+        <%= submit_tag "Find" %>
+        <% end %>
+<%= link_to "new comment", "test",
+:remote => true, :id => 'new_comment_link' %>
+

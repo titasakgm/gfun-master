@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  special_people: MyString
+  status: MyString
+  youth_no: 1
+
+two:
+  user_id: 1
+  special_people: MyString
+  status: MyString
+  youth_no: 1
+
+# == Schema Information
+#
+# Table name: lr14s
+#
+#  id             :integer         not null, primary key
+#  user_id        :integer
+#  special_people :string(255)
+#  status         :string(255)
+#  youth_no       :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+

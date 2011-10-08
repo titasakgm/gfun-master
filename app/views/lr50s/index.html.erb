@@ -1,0 +1,36 @@
+<h1>Listing lr50s</h1>
+<h3>จำนวนเยาวชนรับบริการสุขภาพสังคมโดยประมาณในสามปีข้างหน้า(ปี 2554-2556)</h3>
+<table>
+  <tr>
+    <!-- <th>User</th> -->
+    <th rowspan=2>บริการสุขภาพสังคมที่ต้องเตรียม</th>
+    <th colspan=3>คาดประมาณจำนวนเยาวชนรับบริการ</th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+  </tr>
+  <tr>
+    <th>2554</th>
+    <th>2555</th>
+    <th>2556</th>
+
+  </tr>
+
+<% @lr50s.each do |lr50| %>
+  <tr>
+  <!--  <td><%= lr50.user_id %></td> -->
+    <td><%= lr50.health_service %></td>
+    <td><%= lr50.youth_2554 %></td>
+    <td><%= lr50.youth_2555 %></td>
+    <td><%= lr50.youth_2556 %></td>
+    <td><%= link_to 'แสดง', lr50 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr50_path(lr50) %></td>
+    <td><%= link_to 'ลบ', lr50, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr50', new_lr50_path %>
+

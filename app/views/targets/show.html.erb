@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @target.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @target.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_target_path(@target) %> |
+<%= link_to 'Back', targets_path %>

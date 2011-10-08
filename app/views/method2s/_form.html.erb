@@ -1,0 +1,27 @@
+<%= simple_form_for(@method2) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :project2_id %>
+    <%= f.input :target_id %>
+    <%= f.input :title %>
+    <%= f.input :year1_n %>
+    <%= f.input :year2_n %>
+    <%= f.input :year3_n %>
+    <%= f.input :step1_title %>
+    <%= f.input :step2_title %>
+    <%= f.input :step3_title %>
+    <%= f.input :step4_title %>
+    <%= f.input :step5_title %>
+    <%= f.input :step1_dens %>
+    <%= f.input :step2_dens %>
+    <%= f.input :step3_dens %>
+    <%= f.input :step4_dens %>
+    <%= f.input :step5_dens %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

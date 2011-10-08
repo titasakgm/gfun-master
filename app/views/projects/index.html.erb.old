@@ -1,0 +1,55 @@
+<h1>Listing projects</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Fiscal year</th>
+    <th>Yq1</th>
+    <th>Yq2</th>
+    <th>Yq3</th>
+    <th>Yq4</th>
+    <th>A budget</th>
+    <th>A youth no</th>
+    <th>B budget</th>
+    <th>B youth no</th>
+    <th>C budget</th>
+    <th>C youth no</th>
+    <th>Staff q1</th>
+    <th>Staff q2</th>
+    <th>Staff q3</th>
+    <th>Staff q4</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= project.status %></td>
+    <td><%= project.fiscal_year %></td>
+    <td><%= project.yq1 %></td>
+    <td><%= project.yq2 %></td>
+    <td><%= project.yq3 %></td>
+    <td><%= project.yq4 %></td>
+    <td><%= project.a_budget %></td>
+    <td><%= project.a_youth_no %></td>
+    <td><%= project.b_budget %></td>
+    <td><%= project.b_youth_no %></td>
+    <td><%= project.c_budget %></td>
+    <td><%= project.c_youth_no %></td>
+    <td><%= project.staff_q1 %></td>
+    <td><%= project.staff_q2 %></td>
+    <td><%= project.staff_q3 %></td>
+    <td><%= project.staff_q4 %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>

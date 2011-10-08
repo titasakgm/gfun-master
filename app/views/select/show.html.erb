@@ -1,0 +1,111 @@
+
+<h3>กลุ่มเป้าหมาย</h3>
+<p>
+<%  @project2.targets.each  do |t|  %>
+  <%= "#{t.title} "  %>
+<% end %>
+</p>
+<h3>ชื่อโครงการ : <%= @project2.title %></h3>
+<h3>ระยะเวลาดำเนินโครงการ</h3>
+<p>
+<%= @project2.nmonth %> เดือน  (เป็นโครงการในปีงบประมาณ <%= @project2.fiscal_year %> - <%= @project2.fiscal_year + @project2.cover_year rescue nil %> )
+</p>
+<h3>โครงการมุ่งจัดการกับเหตุปัจจัยภาวะคุกคามดังต่อไปนี้</h3>
+<p>
+<% @project2.factors.each do   |f| %>
+<%=  "#{f.title} "  %>
+<% end %>
+</p>
+<h3>กลวิธี</h3>
+<ol>
+<li><%= @project2.method1.title %>
+<p>
+<strong>ระดับความเข้มข้น</strong> <%= @project2.method1.density %><br/>
+<strong>กลุ่มเป้าหมาย</strong> <%= Target.find(@project2.method1.target_id).title rescue nil%>
+</p>
+
+<ul>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year  %> : <%= @project2.method1.year1_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 1 rescue nil %>: <%= @project2.method1.year2_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 2 rescue nil%>: <%= @project2.method1.year3_n %> คน</li>
+</ul>
+</li>
+<li><%= @project2.method2.title %>
+<p>
+<strong>กลุ่มเป้าหมาย</strong> <%= Target.find(@project2.method2.target_id).title  rescue nil%>
+</p>
+
+<ul>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year  %> : <%= @project2.method2.year1_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 1 rescue nil %>: <%= @project2.method2.year2_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 2 rescue nil %>: <%= @project2.method2.year3_n %> คน</li>
+</ul>
+ขั้นตอน
+<ol>
+<li><%= @project2.method2.step1_title %> ระดับความเข้มข้น : <%= @project2.method2.step1_dens %></li>
+<li><%= @project2.method2.step2_title %> ระดับความเข้มข้น : <%= @project2.method2.step2_dens %></li>
+<li><%= @project2.method2.step3_title %> ระดับความเข้มข้น : <%= @project2.method2.step3_dens %></li>
+<li><%= @project2.method2.step4_title %> ระดับความเข้มข้น : <%= @project2.method2.step4_dens %></li>
+<li><%= @project2.method2.step5_title %> ระดับความเข้มข้น : <%= @project2.method2.step5_dens %></li>
+</ol>
+</li>
+
+<li><%= @project2.method3.title %>
+<p>
+<strong>กลุ่มเป้าหมาย</strong> <%= Target.find(@project2.method3.target_id).title  rescue nil%>
+</p>
+
+<ul>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year  %> : <%= @project2.method3.year1_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 1 rescue nil %>: <%= @project2.method3.year2_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 2 rescue nil %>: <%= @project2.method3.year3_n %> คน</li>
+</ul>
+ขั้นตอน
+<ol>
+<li><%= @project2.method3.step1_title %> ระดับความเข้มข้น : <%= @project2.method3.step1_dens %></li>
+<li><%= @project2.method3.step2_title %> ระดับความเข้มข้น : <%= @project2.method3.step2_dens %></li>
+<li><%= @project2.method3.step3_title %> ระดับความเข้มข้น : <%= @project2.method3.step3_dens %></li>
+<li><%= @project2.method3.step4_title %> ระดับความเข้มข้น : <%= @project2.method3.step4_dens %></li>
+</ol>
+</li>
+<li><%= @project2.method4.title %>
+<p>
+<strong>ระดับความเข้มข้น</strong> <%= @project2.method4.density %><br/>
+<strong>กลุ่มเป้าหมาย</strong> <%= Target.find(@project2.method4.target_id).title rescue nil%>
+</p>
+
+<ul>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year  %> : <%= @project2.method4.year1_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 1 rescue nil %>: <%= @project2.method4.year2_n %> คน</li>
+<li>จำนวนเป้าหมายปี <%= @project2.fiscal_year + 2 rescue nil %>: <%= @project2.method4.year3_n %> คน</li>
+</ul>
+</li>
+</ol>
+<h3>ผู้นำภารกิจ</h3>
+<ul>
+<%  @project2.leaders.each do |l| %>
+ <%= "<li>#{l.title}</li>" %>
+<% end %>
+</ul>
+<h3>งบประมาณและหน่วยงานที่จะสนับสนุน</h3>
+ปีงบประมาณ <%= @project2.fiscal_year %>
+<ol>
+<% @project2.project2_budget_srcs.where(:nyear => 1).each do  |bs|  %>
+  <%= "<li>#{bs.budget_src.title} จำนวน #{bs.budget} บาท</li>" unless bs.budget_src.nil? %>
+<% end %>
+</ol>
+ปีงบประมาณ <%= @project2.fiscal_year + 1%>
+<ol>
+<% @project2.project2_budget_srcs.where(:nyear => 2).each do  |bs|  %>
+  <%= "<li>#{bs.budget_src.title} จำนวน #{bs.budget} บาท</li>" unless bs.budget_src.nil? %>
+<% end %>
+</ol>
+ปีงบประมาณ <%= @project2.fiscal_year + 2%>
+<ol>
+<% @project2.project2_budget_srcs.where(:nyear => 3).each do  |bs|  %>
+  <%= "<li>#{bs.budget_src.title} จำนวน #{bs.budget} บาท</li>" unless bs.budget_src.nil? %>
+<% end %>
+</ol>
+<%= link_to 'แก้ไข', edit_project2_path(@project2) %> |
+<%= link_to 'Back', project2s_path %>
+

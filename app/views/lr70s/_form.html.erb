@@ -1,0 +1,50 @@
+<h3>ผลการดำเนินงาน จำนวนกลุ่มเป้าหมายที่ได้รับกิจกรรมป้องกันแก้ไขปัญหาอนามัยเจริญพันธุ์และเอดส์ ในปี 2554</h3>
+<%= form_for(@lr70) do |f| %>
+  <% if @lr70.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr70.errors.count, "error") %> prohibited this lr70 from being saved:</h2>
+
+      <ul>
+      <% @lr70.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= hidden_field_tag 'lr70[user_id]', current_user.id %>
+  <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div> -->
+  <div class="field">
+    <%= f.label :project_name, "ชื่อโครงการ/กิจกรรม" %><br />
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field">
+    <%= f.label :target_name, "กลุ่มเป้าหมาย" %><br />
+
+<%= f.select(:target_name, ApplicationController::TARGET_GROUP , {:prompt => 'เลือกประเภท'}) %>
+    <!-- <%= f.text_field :target_name %> -->
+  </div>
+  <div class="field">
+    <%= f.label :q1, "ไตรมาส 1" %><br />
+    <%= f.text_field :q1 %>
+  </div>
+  <div class="field">
+    <%= f.label :q2, "ไตรมาส 2" %><br />
+    <%= f.text_field :q2 %>
+  </div>
+  <div class="field">
+    <%= f.label :q3, "ไตรมาส 3" %><br />
+    <%= f.text_field :q3 %>
+  </div>
+  <div class="field">
+    <%= f.label :q4, "ไตรมาส 4" %><br />
+    <%= f.text_field :q4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

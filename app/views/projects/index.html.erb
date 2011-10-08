@@ -1,0 +1,18 @@
+
+<h3 style="display:inline-block">Project list</h3> | <%= link_to "Project Summary", report_target_path , :target => "_blank" %>
+<br/>
+<%= link_to 'New Project', new_project_path, :class => "new_project" %>
+<% @projects.each do |p| %>
+<div>
+<h2><%= link_to p.title, edit_project_path(p), :class => "project_title"  %></h2>
+<p>
+<%= p.objective %>
+</p>
+<p>
+<%= link_to 'X', p, :confirm => 'Are you sure?', :method => :delete, :class => "delete_project" %> |
+<%= link_to 'รายละเอียด', project_path(p) %>
+</p>
+</div>
+
+<% end %>
+

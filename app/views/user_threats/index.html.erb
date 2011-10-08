@@ -1,0 +1,25 @@
+<h1>Listing user_threats</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Threat</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_threats.each do |user_threat| %>
+  <tr>
+    <td><%= user_threat.user_id %></td>
+    <td><%= user_threat.threat_id %></td>
+    <td><%= link_to 'แสดง', user_threat %></td>
+    <td><%= link_to 'แก้ไข', edit_user_threat_path(user_threat) %></td>
+    <td><%= link_to 'ลบ', user_threat, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User threat', new_user_threat_path %>

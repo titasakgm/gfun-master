@@ -1,0 +1,30 @@
+<h1>Listing lr46s</h1>
+<h3>จำนวนกลุ่มเป้าหมายที่บริการสุขภาพสังคมที่เกี่ยวข้องในปีที่ผ่านมา(2553)</h3>
+<table>
+  <tr>
+    <!-- <th>User</th> -->
+    <th>บริการสุขภาพสังคม</th>
+    <th>จำนวนเยาวชนที่ได้รับบริการปี 2553</th>
+    <!-- <th>Define date</th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr46s.each do |lr46| %>
+  <tr>
+    <!-- <td><%= lr46.user_id %></td> -->
+    <td><%= lr46.health_service %></td>
+    <td><%= lr46.youth_no %></td>
+    <!-- <td><%= lr46.define_date %></td> -->
+    <td><%= link_to 'แสดง', lr46 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr46_path(lr46) %></td>
+    <td><%= link_to 'ลบ', lr46, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr46', new_lr46_path %>
+

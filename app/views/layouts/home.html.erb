@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.controller_name %>: <%= controller.action_name %></title>
+ <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag :defaults, "nested_form" %>
+
+
+
+  <%= javascript_include_tag "jquery-ui-1.8.6.custom.min.js","autocomplete-rails.js" %>
+
+	<%= javascript_include_tag "high-chart/highcharts" %>
+  <!-- <%= javascript_include_tag "high-chart/themes/gray" %> -->
+  <%= javascript_include_tag "high-chart/modules/exporting" %>
+  <%= stylesheet_link_tag "blueprint/screen", "blueprint/plugins/fancy-type/screen", :media => "screen, projection" %>
+  <%= stylesheet_link_tag "blueprint/print", :media => "print"  %>
+
+<style type="text/css">
+  .editable input[type=submit] {
+  color: #F00;
+  font-weight: bold;
+}
+.editable input[type=button] {
+  color: #0F0;
+  font-weight: bold;
+}
+#loading{
+  display:none;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+#menu div{
+
+			position:absolute;
+			bottom:0;
+			right:0px;
+		}
+
+		#menu a{
+			text-decoration:none;
+			color:#666;
+			text-align:center;
+		}
+		#menu a:hover{
+			color:#eee;
+			background-color:#666;
+		}
+		#menu {
+			font-weight:bold;
+			text-align:right;
+			display:table-cell;
+			position:relative;
+		}
+
+		#logo, #menu{
+			height:100px;
+		}
+		.thai-sub{
+			color:#999;
+		}
+		a {
+			text-decoration:none;
+
+		}
+</style>
+
+
+</head>
+<body>
+<div class="container">
+	  <%= render "layouts/menu" %>
+
+
+    <hr/>
+    <div id="main_content">
+
+    <%= yield %>
+
+    </div>
+    <hr>
+
+    	<h4 class="alt" style="text-align:center">Created by <a href="http://www.tfreek.com" target="_blank">tFreek.com</a></h2>
+    <hr>
+</div>
+</body>
+</html>
+

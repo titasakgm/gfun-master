@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  project_name: MyString
+  target_name: MyString
+  activity_name: MyString
+  real_budget: 9.99
+  supporter: MyString
+  target_no: 1
+  define_date: 2010-12-26 00:30:10
+
+two:
+  user_id: 1
+  project_name: MyString
+  target_name: MyString
+  activity_name: MyString
+  real_budget: 9.99
+  supporter: MyString
+  target_no: 1
+  define_date: 2010-12-26 00:30:10
+
+# == Schema Information
+#
+# Table name: lr45s
+#
+#  id            :integer         not null, primary key
+#  user_id       :integer
+#  project_name  :string(255)
+#  target_name   :string(255)
+#  activity_name :string(255)
+#  real_budget   :decimal(, )
+#  supporter     :string(255)
+#  target_no     :integer
+#  define_date   :datetime
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

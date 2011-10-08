@@ -1,0 +1,13 @@
+<%= simple_form_for(@project2_special_group) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :project2_id %>
+    <%= f.input :special_group_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

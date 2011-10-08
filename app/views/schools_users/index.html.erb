@@ -1,0 +1,43 @@
+<h1>ข้อมูลเยาวชนในสถานศึกษาในพื้นที่</h1>
+
+* เยาวชนในที่นี้ หมายถึง ผู้ที่มีอายุระหว่าง 12-24 ปี
+     <br>* สถานศึกษาในที่นี้ หมายถึง โรงเรียน วิทยาลัย มหาวิทยาลัย และการศึกษานอกโรงเรียน
+
+<table>
+  <tr>
+    <th>สถานศึกษา</th>
+    <th>จำนวนเยาวชนชาย</th>
+    <th>จำนวนเยาวชนหญิง</th>
+    <th>รวม</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schools_users.each do |schools_user| %>
+  <tr>
+    <td><%= schools_user.school.name rescue nil%></td>
+    <td><%= schools_user.male_no %></td>
+    <td><%= schools_user.female_no %></td>
+    <td><%= schools_user.female_no + schools_user.male_no rescue nil%></td>
+    <td><%= link_to 'แสดง', schools_user %></td>
+    <td><%= link_to 'แก้ไข', edit_schools_user_path(schools_user) %></td>
+    <td><%= link_to 'ลบ', schools_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<table>
+<thead><tr><th>รวมจำนวนสถานศึกษา</th><th>รวมจำนวนเยาวชนชาย</th><th>รวมจำนวนเยาวชนหญิง</th><th>รวมจำนวนเยาวชนทั้งหมด</th></tr></thead>
+<tbody>
+  <tr>
+    <td><%= current_user.schools_users.count %></td>
+    <td><%= m = current_user.schools_users.sum(:male_no) %></td>
+    <td><%= f = current_user.schools_users.sum(:female_no) %></td>
+    <td><%= m + f %></td>
+  </tr>
+</tbody>
+</table>
+<br />
+
+<%= link_to 'เพิ่มข้อมูลเยาวชนในสถานศึกษา', new_schools_user_path %>
+

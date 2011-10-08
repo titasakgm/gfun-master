@@ -1,0 +1,21 @@
+<%= form_for(@tbl_40_2554_i) do |f| %>
+  <% if @tbl_40_2554_i.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tbl_40_2554_i.errors.count, "error") %> prohibited this tbl_40_2554_i from being saved:</h2>
+
+      <ul>
+      <% @tbl_40_2554_i.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :test %><br />
+    <%= f.text_field :test %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

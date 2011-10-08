@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Special group:</b>
+  <%= @special_groups_user.special_group_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @special_groups_user.user_id %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @special_groups_user.flag %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @special_groups_user.amount %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_special_groups_user_path(@special_groups_user) %> |
+<%= link_to 'Back', special_groups_users_path %>

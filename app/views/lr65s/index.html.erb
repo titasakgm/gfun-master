@@ -1,0 +1,38 @@
+<h1>Listing lr65s</h1>
+
+<table>
+<caption>ระดับอปท. (กรอกข้อมูล) เมื่อมีการพิจารณาอนุมัติงบประมาณแล้ว
+โครงการและงบประมาณที่ได้รับ จำนวนกลุ่มเป้าหมาย (ปี 2554)
+</caption>
+  <tr>
+  <th>ชื่อโครงการ/กิจกรรม</th>
+  <th>กลุ่มเป้าหมาย</th>
+  <th>ลักษณะกิจกรรม</th>
+  <th>งบประมาณที่ได้รับ</th>
+  <th>หน่วยงาน/ผู้รับผิดชอบ</th>
+  <th>จำนวนกลุ่มเป้าหมายกิจกรรม</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr65s.each do |lr65| %>
+  <tr>
+    <!-- <td><%= lr65.user_id %></td> -->
+    <td><%= lr65.project_name %></td>
+    <td><%= lr65.target_name %></td>
+    <td><%= ApplicationController::ACTIVITY_TYPE.index(lr65.activity_type.to_i) %></td>
+    <td><%= lr65.budget %></td>
+    <td><%= lr65.owner %></td>
+    <td><%= lr65.target_no %></td>
+    <td><%= link_to 'แสดง', lr65 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr65_path(lr65) %></td>
+    <td><%= link_to 'ลบ', lr65, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr65', new_lr65_path %>
+

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Activity:</b>
+  <%= @activities_project.activity_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @activities_project.project_id %>
+</p>
+
+<p>
+  <b>Freq:</b>
+  <%= @activities_project.freq %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @activities_project.provider %>
+</p>
+
+<p>
+  <b>Sponsor:</b>
+  <%= @activities_project.sponsor %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_activities_project_path(@activities_project) %> |
+<%= link_to 'Back', activities_projects_path %>

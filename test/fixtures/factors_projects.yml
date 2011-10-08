@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  factor_id: 1
+  project_id: 1
+
+two:
+  factor_id: 1
+  project_id: 1
+
+# == Schema Information
+#
+# Table name: factors_projects
+#
+#  factor_id  :integer
+#  project_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

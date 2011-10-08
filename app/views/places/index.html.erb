@@ -1,0 +1,28 @@
+<h1>รายชื่อสถานประกอบการ</h1>
+
+<table>
+  <tr>
+    <th>ชื่อสถานประกอบการ</th>
+    <th>รายละเอียด</th>
+    <th>ที่อยู่</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @places.each do |place| %>
+  <tr>
+    <td><%= place.name %></td>
+    <td><%= place.desciption %></td>
+    <td><%= place.address %></td>
+   <td><%= link_to 'แสดง', place %></td>
+    <td><%= link_to 'แก้ไข', edit_place_path(place) %></td>
+    <td><%= link_to 'ลบ', place, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มรายชื่อสถานประกอบการ', new_place_path %>
+

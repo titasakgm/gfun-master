@@ -1,0 +1,46 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  nmonth: 1
+  fiscal_year: 1
+  a_budget: 9.99
+  b_budget: 9.99
+  c_budget: 9.99
+  year1n: 1
+  year2n: 1
+  year3n: 1
+
+two:
+  title: MyString
+  nmonth: 1
+  fiscal_year: 1
+  a_budget: 9.99
+  b_budget: 9.99
+  c_budget: 9.99
+  year1n: 1
+  year2n: 1
+  year3n: 1
+
+
+
+# == Schema Information
+#
+# Table name: project2s
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  nmonth      :integer
+#  fiscal_year :integer
+#  a_budget    :decimal(, )
+#  b_budget    :decimal(, )
+#  c_budget    :decimal(, )
+#  year1n      :integer
+#  year2n      :integer
+#  year3n      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  user_id     :integer
+#  cover_year  :integer
+#
+

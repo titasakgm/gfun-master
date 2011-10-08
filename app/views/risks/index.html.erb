@@ -1,0 +1,28 @@
+<h1>รายการพื้นที่เอื้อพฤติกรรมเสี่ยงเยาวชน</h1>
+
+<table>
+  <tr>
+    <th>risk_code</th>
+    <th>risk_hotid</th>
+    <th>risk_hottype</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @risks.each do |risk| %>
+  <tr>
+    <td><%= risk.risk_code %></td>
+    <td><%= risk.risk_hotid %></td>
+    <td><%= risk.risk_hottype %></td>
+    <td><%= link_to 'แสดง', risk %></td>
+    <td><%= link_to 'แก้ไข', edit_risk_path(risk) %></td>
+    <td><%= link_to 'ลบ', risk, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มรายการพื้นที่เอื้อพฤติกรรมเสี่ยงเยาวชน', "http://50.56.112.140/gfund/map/showx/#{current_user.ladmin_id}" %>
+

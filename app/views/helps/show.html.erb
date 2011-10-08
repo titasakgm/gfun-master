@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h3><%= @help.title %></h3>
+
+<p>
+
+  <%= raw(@help.body) %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_help_path(@help) %> |
+<%= link_to 'Back', helps_path %>
+

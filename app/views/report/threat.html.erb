@@ -1,0 +1,15 @@
+<h2>การวิเคราะห์ภาวะคุกคามของเยาวชนกลุ่มเปราะบาง</h2>
+
+<% ThreatType.order("weight").each do |tt| %>
+  <h4><%= tt.title %></h4>
+  <% unless  current_user.threats.where(:threat_type_id => tt.id).empty? %>
+    <ul>
+    <% current_user.threats.where(:threat_type_id => tt.id).each do |t| %>
+      <li><%= t.title %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    - <br/>
+  <% end %>
+<% end %>
+

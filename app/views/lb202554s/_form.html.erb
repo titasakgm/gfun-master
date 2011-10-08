@@ -1,0 +1,60 @@
+<h3>แผนพัฒนาสมรรถนะทีมงานระดับอปท. 2554</h3>
+<%= form_for(@lb202554) do |f| %>
+  <% if @lb202554.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lb202554.errors.count, "error") %> prohibited this lb202554 from being saved:</h2>
+
+      <ul>
+      <% @lb202554.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div> -->
+  <%= hidden_field_tag 'lb202554[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :team_type, "ประเภททีมงานที่ต้องใช้" %><br />
+    <%= f.select(:team_type, ApplicationController::TEAM_TYPE , {:prompt => 'เลือกประเภท'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :team_no, "จำนวนทีมงานที่ต้องใช้" %><br />
+    <%= f.text_field :team_no %>
+  </div>
+  <div class="field">
+    <%= f.label :e_team_no, "จำนวนทีมงานที่มีอยู่" %><br />
+    <%= f.text_field :e_team_no %>
+  </div>
+  <div class="field">
+    <%= f.label :f_team_no, "จำนวนทีมงานที่ต้องหาเพิ่ม" %><br />
+    <%= f.text_field :f_team_no %>
+  </div>
+  <div class="field">
+    <%= f.label :wd_team_no, "จำนวนทีมงานที่ต้องการให้พัฒนาสมรรถนะ" %><br />
+    <%= f.text_field :wd_team_no %>
+  </div>
+  <div class="field">
+    <%= f.label :pd_team_no, "จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะในปี 2554" %><br />
+    <%= f.text_field :pd_team_no %>
+  </div>
+  <div class="field">
+    <%= f.label :budget, "งบประมาณ" %><br />
+    <%= f.text_field :budget %>
+  </div>
+  <div class="field">
+    <%= f.label :trainner, "วิทยากร" %><br />
+    <%= f.text_area :trainner %>
+  </div>
+  <div class="field">
+    <%= f.label :tool, "เครื่องมือ เอกสารแนวทาง วิธีการดำเนินงาน" %><br />
+    <%= f.text_area :tool %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

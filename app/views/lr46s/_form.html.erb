@@ -1,0 +1,38 @@
+<h3>จำนวนกลุ่มเป้าหมายที่บริการสุขภาพสังคมที่เกี่ยวข้องในปีที่ผ่านมา(2553)</h3>
+
+<%= form_for(@lr46) do |f| %>
+  <% if @lr46.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr46.errors.count, "error") %> prohibited this lr46 from being saved:</h2>
+
+      <ul>
+      <% @lr46.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div> -->
+  <%= hidden_field_tag 'lr46[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :health_service, "บริการสุขภาพสังคม" %><br />
+    <%= f.text_field :health_service %>
+  </div>
+  <div class="field">
+    <%= f.label :youth_no, "จำนวนเยาวชนที่ได้รับบริการปี 2553" %><br />
+    <%= f.text_field :youth_no %>
+  </div>
+  <!--
+  <div class="field">
+    <%= f.label :define_date %><br />
+    <%= f.datetime_select :define_date %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

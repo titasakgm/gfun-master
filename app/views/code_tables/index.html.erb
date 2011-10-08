@@ -1,0 +1,25 @@
+<h1>Listing code_tables</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @code_tables.each do |code_table| %>
+  <tr>
+    <td><%= code_table.title %></td>
+    <td><%= code_table.description %></td>
+    <td><%= link_to 'แสดง', code_table %></td>
+    <td><%= link_to 'แก้ไข', edit_code_table_path(code_table) %></td>
+    <td><%= link_to 'ลบ', code_table, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Code table', new_code_table_path %>

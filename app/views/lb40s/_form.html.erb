@@ -1,0 +1,39 @@
+<%= form_for(@lb40) do |f| %>
+  <% if @lb40.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lb40.errors.count, "error") %> prohibited this lb40 from being saved:</h2>
+
+      <ul>
+      <% @lb40.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= hidden_field_tag 'lb40[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :team_type, "ประเภททีมงาน" %><br />
+    <%= f.select(:team_type, ApplicationController::TEAM_TYPE , {:prompt => 'เลือกประเภท'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :q1, "ไตรมาส 1" %><br />
+    <%= f.text_field :q1 %>
+  </div>
+  <div class="field">
+    <%= f.label :q2, "ไตรมาส 2" %><br />
+    <%= f.text_field :q2 %>
+  </div>
+  <div class="field">
+    <%= f.label :q3, "ไตรมาส 3" %><br />
+    <%= f.text_field :q3 %>
+  </div>
+  <div class="field">
+    <%= f.label :q4, "ไตรมาส 4" %><br />
+    <%= f.text_field :q4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

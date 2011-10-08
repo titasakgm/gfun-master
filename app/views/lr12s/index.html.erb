@@ -1,0 +1,29 @@
+<h1>Listing lr12s</h1>
+
+<table>
+  <tr>
+    <th>Place </th>
+    <th>Code table</th>
+    <th>User</th>
+    <th>Youth no</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr12s.each do |lr12| %>
+  <tr>
+    <td><%= lr12.place__id %></td>
+    <td><%= lr12.code_table_id %></td>
+    <td><%= lr12.user_id %></td>
+    <td><%= lr12.youth_no %></td>
+    <td><%= link_to 'แสดง', lr12 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr12_path(lr12) %></td>
+    <td><%= link_to 'ลบ', lr12, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr12', new_lr12_path %>

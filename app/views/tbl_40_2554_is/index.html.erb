@@ -1,0 +1,23 @@
+<h1>Listing tbl_40_2554_is</h1>
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tbl_40_2554_is.each do |tbl_40_2554_i| %>
+  <tr>
+    <td><%= tbl_40_2554_i.test %></td>
+    <td><%= link_to 'แสดง', tbl_40_2554_i %></td>
+    <td><%= link_to 'แก้ไข', edit_tbl_40_2554_i_path(tbl_40_2554_i) %></td>
+    <td><%= link_to 'ลบ', tbl_40_2554_i, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tbl 40 2554 i', new_tbl_40_2554_i_path %>

@@ -1,0 +1,19 @@
+<% if current_user %>
+ข้อมูลตั้งต้น
+<ul id="left_nav_menu">
+<li>ข้อมูล
+  <ul>
+    <li><%= link_to "สถานศึกษา", schools_users_path %></li>
+    <li><%= link_to "สถานประกอบการ", places_users_path %></li>
+    <li><%= link_to "ชุมชน", communities_users_path %></li>
+    <li><%= link_to "กลุ่มเปราะบาง", special_groups_users_path %></li>
+    <li><%= link_to "พื้นที่เอื้อพฤติกรรมเสี่ยงเยาวชน", risks_path %></li>
+  </ul>
+</li>
+<li>ปัญหา
+<ul>
+    <li><%= link_to "วงจรปัญหาอนามัยเจริญพันธุ์ 5 ด้านของเยาวชน", site_define_threat_path, :target => "_blank" %></li>
+</ul>
+</li>
+</ul>
+<% end %>

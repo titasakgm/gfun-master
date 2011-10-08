@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  project_name: MyString
+  target_name: MyString
+  activity_type: MyString
+  target_no: 1
+  team_type: MyString
+  team_no: 1
+  comment: MyText
+
+two:
+  user_id: 1
+  project_name: MyString
+  target_name: MyString
+  activity_type: MyString
+  target_no: 1
+  team_type: MyString
+  team_no: 1
+  comment: MyText
+
+# == Schema Information
+#
+# Table name: lr602556s
+#
+#  id            :integer         not null, primary key
+#  user_id       :integer
+#  project_name  :string(255)
+#  target_name   :string(255)
+#  activity_type :string(255)
+#  target_no     :integer
+#  team_type     :string(255)
+#  team_no       :integer
+#  comment       :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

@@ -1,0 +1,42 @@
+<h3>ระดับความเข้มข้นของการให้ข้อมูลข่าวสาร สำหรับเยาวชนกลุ่มทั่วไป</h3>
+<table>
+<thead>
+<tr><th>กลุ่มเยาวชน</th><th>จำนวนเยาวชนทั้งหมด</th><th>จำนวนที่และสัดส่วนที่จะได้รับการให้ข้อมูลข่าวสาร</th><th> ระดับความเข้มข้นของกลวิธี
+ใช้ ฐานนิยม
+(อยู่ระหว่าง 0-4)</th>
+</tr>
+</thead>
+<tbody>
+ <% sm = current_user.schools_users.sum(:male_no) %></td>
+ <% sf = current_user.schools_users.sum(:female_no) %></td>
+ <% edu = Target.find_by_code('edu') %>
+ <% project_ids = current_user.project2s.collect { |p| p.id } %>
+ <% n = Method1.where(:target_id => edu.id, :project2_id => project_ids).sum(:year1_n) %>
+ <% avg = Method1.where(:target_id => edu.id, :project2_id => project_ids).average(:density) %>
+ <% total = sm + sf %>
+ <tr>
+ <td><%= edu.title %></td><td><%= total %></td><td><%= "%.2f" % (n * 100.0 / total) %> %</td><td><%= avg %></td>
+ </tr>
+ <% sm = current_user.places_users.sum(:male_no) %></td>
+ <% sf = current_user.places_users.sum(:female_no) %></td>
+ <% t = Target.find_by_code('place') %>
+ <% project_ids = current_user.project2s.collect { |p| p.id } %>
+ <% n = Method1.where(:target_id => t.id, :project2_id => project_ids).sum(:year1_n) %>
+ <% avg = Method1.where(:target_id => t.id, :project2_id => project_ids).average(:density) %>
+ <% total = sm + sf %>
+ <tr>
+ <td><%= t.title %></td><td><%= total %></td><td><%= "%.2f" % (n * 100.0 / total) %> %</td><td><%= avg %></td>
+ </tr>
+  <% sm = current_user.communities_users.sum(:male_no) %></td>
+ <% sf = current_user.communities_users.sum(:female_no) %></td>
+ <% t = Target.find_by_code('soc') %>
+ <% project_ids = current_user.project2s.collect { |p| p.id } %>
+ <% n = Method1.where(:target_id => t.id, :project2_id => project_ids).sum(:year1_n) %>
+ <% avg = Method1.where(:target_id => t.id, :project2_id => project_ids).average(:density) %>
+ <% total = sm + sf %>
+ <tr>
+ <td><%= t.title %></td><td><%= total %></td><td><%= "%.2f" % (n * 100.0 / total) %> %</td><td><%= avg %></td>
+ </tr>
+</tbody>
+</table>
+

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @special_group.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @special_group.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_special_group_path(@special_group) %> |
+<%= link_to 'Back', special_groups_path %>

@@ -1,0 +1,25 @@
+<h1>Listing youth_problems</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @youth_problems.each do |youth_problem| %>
+  <tr>
+    <td><%= youth_problem.title %></td>
+    <td><%= youth_problem.description %></td>
+    <td><%= link_to 'แสดง', youth_problem %></td>
+    <td><%= link_to 'แก้ไข', edit_youth_problem_path(youth_problem) %></td>
+    <td><%= link_to 'ลบ', youth_problem, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Youth problem', new_youth_problem_path %>

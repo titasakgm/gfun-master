@@ -1,0 +1,25 @@
+<%= form_for(@code_table) do |f| %>
+  <% if @code_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@code_table.errors.count, "error") %> prohibited this code_table from being saved:</h2>
+
+      <ul>
+      <% @code_table.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

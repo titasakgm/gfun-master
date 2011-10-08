@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_threat.user_id %>
+</p>
+
+<p>
+  <b>Threat:</b>
+  <%= @user_threat.threat_id %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_user_threat_path(@user_threat) %> |
+<%= link_to 'Back', user_threats_path %>

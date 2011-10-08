@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+ชื่อโครงการ <%= @project.title %> <br/>
+ระยะเวลาดำเนินโครงการ  <%= @project.nday %> วัน (เป็นโครงการสำหรับปีงบประมาณ <%= @project.fiscal_year %>)<br/>
+กลุ่มเป้าหมายของโครงการ
+<ul>
+<% @project.targets.each do |t| %>
+  <li><%= t.title %></li>
+<% end %>
+</ul>
+กลวิธี (4 แบบ) และระดับความเข้มข้น (5 ระดับในแต่ละกลวิธี) (แยกตามแต่ละภาวะคุกคาม)
+<ul>
+<% @project.activities_projects.each do |ap| %>
+<li><%= ap.activity.title rescue nil %> ความเข้ม: <%= ap.weight %> ผู้นำภารกิจ: <%= ap.provider %></li>
+<% end %>
+</ul>
+<h5>งบประมาณ</h5>
+<p>
+ปีงบประมาณ  <%= @project.fiscal_year %><br/>
+แหล่งงบประมาณ <%= @project.budget_src.title rescue nil %> จำนวนงบประมาณ <%= @project.c_budget %> บาท
+</p>
+<p>
+ปีงบประมาณ  <%= @project.fiscal_year + 1 rescue nil%> จำนวนงบประมาณ <%= @project.y2_budget %> บาท <br/>
+ปีงบประมาณ  <%= @project.fiscal_year + 2 rescue nil%> จำนวนงบประมาณ <%= @project.y3_budget %> บาท
+</p>
+

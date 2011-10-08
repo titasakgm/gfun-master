@@ -1,0 +1,28 @@
+<h1>รายชื่อชุมชน</h1>
+
+<table>
+  <tr>
+    <th>ชื่อชุมชน</th>
+    <th>รายละเอียด</th>
+    <th>ที่อยู่</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @communities.each do |community| %>
+  <tr>
+    <td><%= community.name %></td>
+    <td><%= community.desciption %></td>
+    <td><%= community.address %></td>
+    <td><%= link_to 'แสดง', community %></td>
+    <td><%= link_to 'แก้ไข', edit_community_path(community) %></td>
+    <td><%= link_to 'ลบ', community, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มชุมชนที่นี่', new_community_path %>
+

@@ -1,0 +1,42 @@
+<% if @progress.nil? %>
+  <% return %>
+<% end %>
+<%= form_for(@progress, :remote => true) do |f| %>
+  <% if @progress.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@progress.errors.count, "error") %> prohibited this progress from being saved:</h2>
+
+      <ul>
+      <% @progress.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= hidden_field_tag "dialog_id", "#{@id}" %>
+  <!--
+  <div class="field">
+    <%= f.label :projects_staff_id %><br />
+    <%= f.text_field :projects_staff_id %>
+  </div> -->
+  <div class="field">
+    <%= f.label :q1 %><br />
+    <%= f.text_field :q1 %>
+  </div>
+  <div class="field">
+    <%= f.label :q2 %><br />
+    <%= f.text_field :q2 %>
+  </div>
+  <div class="field">
+    <%= f.label :q3 %><br />
+    <%= f.text_field :q3 %>
+  </div>
+  <div class="field">
+    <%= f.label :q4 %><br />
+    <%= f.text_field :q4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,51 @@
+<%= form_for(@lr402) do |f| %>
+  <% if @lr402.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr402.errors.count, "error") %> prohibited this lr402 from being saved:</h2>
+
+      <ul>
+      <% @lr402.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag 'lr402[user_id]', current_user.id %>
+
+  <div class="field">
+    <%= f.label :project_name, "ชื่อโครงการ/กิจกรรม" %><br />
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field">
+    <%= f.label :target_name, "กลุ่มเป้าหมาย" %><br />
+    <%= f.select(:target_name, ApplicationController::TARGET_GROUP , {:prompt => 'เลือกประเภท'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :target1_no, "จำนวนกลุ่มเป้าหมายตามแผนปี 2554" %><br />
+    <%= f.text_field :target1_no %>
+  </div>
+  <div class="field">
+    <%= f.label :budget1, "งบปี 2554" %><br />
+    <%= f.text_field :budget1 %>
+  </div>
+  <div class="field">
+    <%= f.label :target2_no, "จำนวนกลุ่มเป้าหมายตามแผนปี 2555" %><br />
+    <%= f.text_field :target2_no %>
+  </div>
+  <div class="field">
+    <%= f.label :budget2, "งบปี 2555" %><br />
+    <%= f.text_field :budget2 %>
+  </div>
+  <div class="field">
+    <%= f.label :target3_no, "จำนวนกลุ่มเป้าหมายตามแผนปี 2556" %><br />
+    <%= f.text_field :target3_no %>
+  </div>
+  <div class="field">
+    <%= f.label :budget3, "งบปี 2556" %><br />
+    <%= f.text_field :budget3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

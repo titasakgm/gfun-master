@@ -1,0 +1,33 @@
+<%= form_for(@lr14) do |f| %>
+  <% if @lr14.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr14.errors.count, "error") %> prohibited this lr14 from being saved:</h2>
+
+      <ul>
+      <% @lr14.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'lr14[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :special_people, "กลุ่มประชากรเฉพาะ" %><br />
+    <%= f.text_field :special_people %>
+  </div>
+  <div class="field">
+    <%= f.label :status, "สถานะ" %><br />
+    <%= f.select(:status, [[ "ไม่มี", "no"], ["มีแต่ไม่ทราบจำนวน", "have_but_know"], ["มี", "have"] ] , {:prompt => 'เลือกสถานะ'}) %>
+
+    <!-- <%= f.text_field :status %> -->
+  </div>
+  <div class="field">
+    <%= f.label :youth_no, "ถ้ามี ประมาณจำนวนเยาวชน อายุ 12-24 ปีจำนวนประมาณ" %><br />
+    <%= f.text_field :youth_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,23 @@
+<h1>Listing lr_b_40s</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr_b_40s.each do |lr_b_40| %>
+  <tr>
+    <td><%= lr_b_40.name %></td>
+    <td><%= link_to 'แสดง', lr_b_40 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr_b_40_path(lr_b_40) %></td>
+    <td><%= link_to 'ลบ', lr_b_40, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr b 40', new_lr_b_40_path %>

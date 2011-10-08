@@ -1,0 +1,39 @@
+<h1>Listing lr40s</h1>
+
+<table>
+  <tr>
+    <!-- <th>User</th> -->
+    <th>ชื่อโครงการ/กิจกรรม</th>
+    <th>กลุ่มเป้าหมาย</th>
+    <th>วิธีจัดกิจกรรม</th>
+    <th>งบประมาณตามแผน</th>
+    <th>หน่วยงาน/ผู้รับผิดชอบ</th>
+    <th>จำนวนกลุมเป้าหมายกิจกรรม ตามแผนปี 2553</th>
+    <!-- <th>Define date</th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr40s.each do |lr40| %>
+  <tr>
+    <!-- <td><%= lr40.user_id %></td> -->
+    <td><%= lr40.project_name %></td>
+    <td><%= ApplicationController::TARGET_GROUP.index(lr40.target_name) %></td>
+    <!-- <td><%= lr40.target_name %></td> -->
+    <td><%= lr40.method %></td>
+    <td><%= lr40.plan_budget %></td>
+    <td><%= lr40.owner %></td>
+    <td><%= lr40.target_no %></td>
+    <!-- <td><%= lr40.define_date %></td> -->
+    <td><%= link_to 'แสดง', lr40 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr40_path(lr40) %></td>
+    <td><%= link_to 'ลบ', lr40, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr40', new_lr40_path %>
+

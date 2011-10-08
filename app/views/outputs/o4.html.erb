@@ -1,0 +1,37 @@
+<table>
+<tr>
+<th>กลุ่มเยาวชนในแต่ละสถานที่</th>
+<th>จำนวนเยาวชนที่ได้รับบริการปี 2554</th>
+<th>อัตราส่วนร้อยละที่ได้รับกิจกรรมเทียบกับแผน</th>
+<th>อัตราส่วนร้อยละที่ได้รับกิจกรรมเทียบกับจำนวนในพื้นที่</th>
+</tr>
+<tr>
+<%
+edu = current_user.lr70s.where("target_name = 'edu'")
+place = current_user.lr70s.where("target_name = 'place'")
+social = current_user.lr70s.where("target_name = 'social'")
+lr402 = current_user.lr402s
+edu_t = lr402.where("target_name='edu'").sum(:target1_no)
+place_t = lr402.where("target_name='place'").sum(:target1_no)
+soc_t = lr402.where("target_name='social'").sum(:target1_no)
+
+st = current_user.lr11s.sum(:female_no) + current_user.lr11s.sum(:male_no)
+pt = current_user.lr12s.sum(:youth_no)
+soct = current_user.lr13s.sum(:youth_no)
+
+%>
+<td>สถานศึกษา</td><td><%=  (t1 = edu.sum(:q1) + edu.sum(:q2) +  edu.sum(:q3) + edu.sum(:q4)) %></td>
+<td><%= p1 = (t1 * 100.0 / edu_t) %></td><td><%= t1 * 100.0 / st %></td>
+</tr>
+<tr>
+<td>สถานประกอบการ</td><td><%= t2 = place.sum(:q1) + place.sum(:q2) +  place.sum(:q3) + place.sum(:q4) %></td><td><%= p2 = (t2 * 100.0 / place_t) %></td><td><%= t2 * 100.0 / pt %></td>
+</tr>
+<tr>
+<td>ชุมชน</td><td><%= t3 = social.sum(:q1) + social.sum(:q2) +  social.sum(:q3) + social.sum(:q4) %></td><td><%= p3 = (t3 * 100.0 / soc_t) %></td><td><%= t3 * 100.0 / soct %></td>
+</tr>
+<tr>
+<td>รวม</td><td><%= t1 + t2+ t3 %></td><td><%= (t1 + t2 + t3) * 100.0 / (edu_t + place_t + soc_t ) %></td><td><%= (t1 + t2 + t3)*100.0 / (st + pt + soct) %></td>
+</tr>
+
+</table>
+

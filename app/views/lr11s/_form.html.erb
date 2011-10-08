@@ -1,0 +1,37 @@
+<%= form_for(@lr11) do |f| %>
+  <% if @lr11.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr11.errors.count, "error") %> prohibited this lr11 from being saved:</h2>
+
+      <ul>
+      <% @lr11.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :school__id %><br />
+    <%= f.text_field :school__id %>
+  </div>
+  <div class="field">
+    <%= f.label :code_table_id %><br />
+    <%= f.text_field :code_table_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :male_no %><br />
+    <%= f.text_field :male_no %>
+  </div>
+  <div class="field">
+    <%= f.label :female_no %><br />
+    <%= f.text_field :female_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

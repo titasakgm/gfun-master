@@ -1,0 +1,48 @@
+<% form_tag("/form/add_place", :remote => true, :format => :js) do %>
+<label>ชื่อสถานประกอบการ</label>
+<input type="text" name="name" />
+
+<input type="submit" value="Add" />
+<% end %>
+<div id="user_place">
+<table>
+<thead>
+<tr>
+<th>สถานประกอบการ</th><th>จำนวนเยาวชน</th>
+</tr>
+</thead>
+<tbody>
+<% @lr12s.each do |lr| %>
+<tr><td><%= lr.place.name %></td><td><span class="youth" tbl="lr12" lr12_id="<%= lr.id %>" id="youth_<%= lr.id %>" style="display: inline"><%= lr.youth_no %></span></td></tr>
+
+<% end %>
+</tbody>
+</table>
+<script>
+$(function(){
+
+
+  $(".editable_textarea").editable("http://www.appelsiini.net/projects/jeditable/php/save.php", {
+      indicator : "<img src='img/indicator.gif'>",
+      type   : 'textarea',
+      submitdata: { _method: "put" },
+      select : true,
+      submit : 'OK',
+      cancel : 'cancel',
+      cssclass : "editable"
+  });
+  $(".youth").each(function(){
+    var tbl_name = $(this).attr("tbl");
+    var id = $(this).attr("lr12_id")
+    //console.log(id);
+    $(this).editable("/form/save_value", {
+      submitdata : {tbl: tbl_name, lr12_id : id},
+      width:"70px",
+      style:"inherit",
+    });
+
+  });
+});
+</script>
+</div>
+

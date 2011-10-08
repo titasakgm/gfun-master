@@ -1,0 +1,28 @@
+<h1>Listing problems</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @problems.each do |problem| %>
+  <tr>
+    <td><%= problem.title %></td>
+    <td><%= problem.type_name %></td>
+    <td><%= problem.description %></td>
+    <td><%= link_to 'แสดง', problem %></td>
+    <td><%= link_to 'แก้ไข', edit_problem_path(problem) %></td>
+    <td><%= link_to 'ลบ', problem, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Problem', new_problem_path %>
+

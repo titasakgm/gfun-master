@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @youth_problem.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @youth_problem.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_youth_problem_path(@youth_problem) %> |
+<%= link_to 'Back', youth_problems_path %>

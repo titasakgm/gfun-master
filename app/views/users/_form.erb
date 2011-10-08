@@ -1,0 +1,107 @@
+<script>
+$(function(){
+  $("#user_province_id").change(function(){
+    var id = $(this).val();
+    $.get("/gfund_web/provinces/"+id+"/amphurs.js");
+  });
+  $("#user_amphur_id").change(function(){
+    var id = $(this).val();
+    $.get("/gfund_web/amphurs/"+id+"/ladmins.js");
+  });
+  $(".role_checkbox").change(function(){
+    var v = $(this).val();
+    if( v == "lad"){
+      $("#province_select, #amphur_select, #lad_select").show();
+    }else if( v == "amp"){
+      $("#province_select, #amphur_select").show();
+      $("#lad_select, #reg_select, #center_select").hide();
+    }else if( v == "prov"){
+      $("#amphur_select, #lad_select, #reg_select, #center_select").hide();
+    }else if( v == "reg"){
+      $("#reg_select").show();
+      $("#province_select, #amphur_select, #lad_select, #center_select").hide();
+    }else if( v == "center"){
+      $("#center_select").show();
+      $("#province_select, #amphur_select, #lad_select, #reg_select").hide();
+    }
+  });
+  $("#amphur_select, #lad_select, #reg_select, #center_select").hide();
+});
+</script>
+<%= form.label :login %><br />
+<%= form.text_field :login %><br />
+<br />
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation %><br />
+<%= form.password_field :password_confirmation %><br />
+  <br />
+  <%= form.label "ชื่อ" %><br />
+  <%= form.text_field :fname %><br />
+  <br />
+  <%= form.label "นามสกุล" %><br />
+  <%= form.text_field :lname %><br />
+  <br />
+  <%= form.label "ตำแหน่ง" %><br />
+  <%= form.text_field :position %><br />
+  <br />
+  <%= form.label "สถานที่ทำงาน" %><br />
+  <%= form.text_field :office %><br />
+  <br />
+  <%= form.label "โทรศัพท์" %><br />
+  <%= form.text_field :phone %><br />
+  <br />
+  <%= form.label "มือถือ" %><br />
+  <%= form.text_field :mobile %><br />
+  <br />
+  <%= form.label :email %><br />
+  <%= form.text_field :email %><br />
+  <br />
+  
+  <%= form.label :ลงทะเบียนผู้ใช้งานในระดับ %><br /> <!-- <%= form.label :roles %><br /> -->
+  <% for role in User::ROLES %>
+    <% if role == "admin"
+      next
+    end %>
+    <%= radio_button_tag "user[roles][]", role,  @user.roles.include?(role), :class => "role_checkbox" %>
+    <%=h User::PRINT_ROLES[role] %>
+  <% end %>
+  <br/>
+  <%= hidden_field_tag "user[roles][]", "" %>
+  <!-- <%=text_field_tag 'name', '', :autocomplete => users_autocomplete_province_name_path %> -->
+  <!--
+  จังหวัด<br/>
+  <%= form.autocomplete_field :province, users_autocomplete_province_name_path %><br/>
+  อำเภอ<br/>
+  <%= form.autocomplete_field :province, users_autocomplete_amphur_name_path %><br/>
+  อปท.<br/>
+  <%= form.autocomplete_field :province, users_autocomplete_ladmin_name_path %><br/>
+  -->
+  <div id="province_select">
+  จังหวัด<br/>
+  <%= form.select("province_id", Province.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'select a value'}) %><br/>
+  </div>
+  <div id="amphur_select">
+  อำเภอ<br/>
+  <select id="user_amphur_id" name="user[amphur_id]">
+  </select>
+  </div>
+  <div id="lad_select">
+  อปท<br/>
+  <select id="user_ladmin_id" name="user[ladmin_id]">
+  </select>
+  </div>
+
+  <!-- Add by Dr.Titasak 20110930 -->
+  <div id="reg_select">
+  เขต<br/>
+  <%= form.select("reg_id", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19], {:include_blank => 'select a value'}) %><br/>
+  </select>
+  </div>
+    <div id="center_select">
+  ส่วนกลาง<br/>
+  <%= form.select("center_id", ['Item 1','Item 2'], {:include_blank => 'select a value'}) %><br/>
+  </select>
+  </div>
+

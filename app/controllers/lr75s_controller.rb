@@ -1,0 +1,84 @@
+class Lr75sController < ApplicationController
+  # GET /lr75s
+  # GET /lr75s.xml
+  def index
+    @lr75s = current_user.lr75s
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @lr75s }
+    end
+  end
+
+  # GET /lr75s/1
+  # GET /lr75s/1.xml
+  def show
+    @lr75 = Lr75.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @lr75 }
+    end
+  end
+
+  # GET /lr75s/new
+  # GET /lr75s/new.xml
+  def new
+    @lr75 = Lr75.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @lr75 }
+    end
+  end
+
+  # GET /lr75s/1/edit
+  def edit
+    @lr75 = Lr75.find(params[:id])
+  end
+
+  # POST /lr75s
+  # POST /lr75s.xml
+  def create
+    @lr75 = Lr75.new(params[:lr75])
+
+    respond_to do |format|
+      if @lr75.save
+        format.html { redirect_to(@lr75, :notice => 'Lr75 was successfully created.') }
+        format.xml  { render :xml => @lr75, :status => :created, :location => @lr75 }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @lr75.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /lr75s/1
+  # PUT /lr75s/1.xml
+  def update
+    @lr75 = Lr75.find(params[:id])
+
+    respond_to do |format|
+      if @lr75.update_attributes(params[:lr75])
+        format.html { redirect_to(@lr75, :notice => 'Lr75 was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @lr75.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /lr75s/1
+  # DELETE /lr75s/1.xml
+  def destroy
+    @lr75 = Lr75.find(params[:id])
+    @lr75.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(lr75s_url) }
+      format.xml  { head :ok }
+    end
+  end
+end
+

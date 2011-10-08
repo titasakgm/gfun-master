@@ -1,0 +1,10 @@
+<% form_tag("/form/add_com", :remote => true, :format => :js) do %>
+<label>ชื่อชุมชน</label>
+<input type="text" name="name" />
+
+<input type="submit" value="Add" />
+<% end %>
+<div id="user_com">
+<%= render :file => "form/com_list" %>
+</div>
+

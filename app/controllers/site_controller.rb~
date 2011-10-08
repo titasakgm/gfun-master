@@ -1,0 +1,17 @@
+class SiteController < ApplicationController
+  respond_to :html, :xml, :json, :js
+  def test
+  end
+  def home
+  end
+  def forms
+    @total_male = current_user.lr11s.sum :male_no
+    @total_female = current_user.lr11s.sum :female_no
+
+    @place_youth = current_user.lr12s.sum :youth_no
+    @com_youth = current_user.lr13s.sum :youth_no
+  end
+  def template
+  end
+end
+

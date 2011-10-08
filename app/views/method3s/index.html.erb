@@ -1,0 +1,49 @@
+<h1>Listing method3s</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Target</th>
+    <th>Title</th>
+    <th>Year1 n</th>
+    <th>Year2 n</th>
+    <th>Year3 n</th>
+    <th>Step1 title</th>
+    <th>Step2 title</th>
+    <th>Step3 title</th>
+    <th>Step4 title</th>
+    <th>Step1 dens</th>
+    <th>Step2 dens</th>
+    <th>Step3 dens</th>
+    <th>Step4 dens</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @method3s.each do |method3| %>
+  <tr>
+    <td><%= method3.project2_id %></td>
+    <td><%= method3.target_id %></td>
+    <td><%= method3.title %></td>
+    <td><%= method3.year1_n %></td>
+    <td><%= method3.year2_n %></td>
+    <td><%= method3.year3_n %></td>
+    <td><%= method3.step1_title %></td>
+    <td><%= method3.step2_title %></td>
+    <td><%= method3.step3_title %></td>
+    <td><%= method3.step4_title %></td>
+    <td><%= method3.step1_dens %></td>
+    <td><%= method3.step2_dens %></td>
+    <td><%= method3.step3_dens %></td>
+    <td><%= method3.step4_dens %></td>
+    <td><%= link_to 'แสดง', method3 %></td>
+    <td><%= link_to 'แก้ไข', edit_method3_path(method3) %></td>
+    <td><%= link_to 'ลบ', method3, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Method3', new_method3_path %>

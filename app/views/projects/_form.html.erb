@@ -1,0 +1,201 @@
+<style>
+ .col3 fieldset{
+  float:left;
+  display:inline-block;
+
+ }
+ .col3 input {
+  width:100px;
+ }
+ .col3 label{
+  min-width:100px;
+  display:inline-block;
+ }
+</style>
+<%= nested_form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+
+    <%= f.label :status, "สถานะ" %>
+    <%= f.select(:status, Project::STATUS, {:prompt => "Select project status"}) %>
+    <%= f.label :fiscal_year, "ปีงบประมาณ" %>
+    <%= f.select(:fiscal_year, Project::FISCAL_YEAR, {:prompt => "Select fiscal year"}) %>
+    <%= f.label :nday, "ใช้เวลา" %><%= f.text_field :nday %> วัน
+    <!--
+    <%= f.text_field :status %> -->
+  </div>
+
+  <div class="field">
+    <%= f.label :objective %><br />
+    <%= f.text_area :objective, :rows => "10" %>
+  </div>
+  <div class="field">
+    <fieldset>
+      <legend>กลุ่มเป้าหมาย</legend>
+      <% Target.all.each do |up| %>
+        <%= check_box_tag "project[target_ids][]", up.id, @project.targets.include?(up) %>  <%= up.title %>
+
+    <% end %>
+    </fieldset>
+  </div>
+  <div class="field">
+    <fieldset>
+      <legend>เหตุปัจจัย</legend>
+      <% Factor.all.each do |up| %>
+        <%= check_box_tag "project[factor_ids][]", up.id, @project.factors.include?(up) %>  <%= up.title %>
+
+    <% end %>
+    </fieldset>
+  </div>
+  <div class="field">
+  <fieldset>
+    <legend>ปัญหา/สถานการณ์เยาวชน <a href="javascript:void(0)" class="hide_show">Hide</a></legend>
+    <% current_user.problems.each do |up| %>
+      <%= check_box_tag "project[problem_ids][]", up.id, @project.problems.include?(up) %>  <%= up.title %>
+
+    <% end %>
+
+  </fieldset>
+  </div>
+  <div class="field">
+    <%= f.label :budget_src_id, "แหล่งให้งบประมาณ" %>
+    <%= f.select :budget_src_id, BudgetSrc.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'เลือกแหล่งงบประมาณ'} %>
+  </div>
+  <div class="field col3">
+
+    <fieldset>
+       <legend>ตั้งไว้ตามแผนที่ยุทธศาสตร์ </legend>
+       <%= f.label "งบประมาณ" %>
+       <%= f.text_field :a_budget %><br/>
+       <%= f.label "จำนวนเยาวชน" %>
+       <%= f.text_field :a_youth_no %>
+
+   </fieldset>
+   <fieldset>
+      <legend>เสนอเข้าแผน อปท.</legend>
+       <%= f.label "งบประมาณ" %>
+       <%= f.text_field :b_budget %><br/>
+       <%= f.label "จำนวนเยาวชน" %>
+       <%= f.text_field :b_youth_no %>
+
+   </fieldset>
+   <fieldset>
+      <legend>ได้รับงบประมาณ</legend>
+       <%= f.label "งบประมาณ" %>
+       <%= f.text_field :c_budget %><br/>
+       <%= f.label "จำนวนเยาวชน" %>
+       <%= f.text_field :c_youth_no %>
+
+   </fieldset>
+
+
+  </div>
+  <div style="clear:both; padding:6px">
+
+   <label>งบปีที่ 2</label> <%= f.text_field :y2_budget %>
+   <label>งบปีที่ 3</label> <%= f.text_field :y3_budget %>
+
+   </div>
+  <div>
+  <fieldset style="display:block; clear:both;">
+    <legend>Progress <a href="javascript:void(0)" class="hide_show">Hide</a></legend>
+ <div class="block_content">
+  <%= f.fields_for :youth_progress do |yp| %>
+    <%= f.label :q1, "Q1" %> <%= yp.text_field :q1 %><br/>
+    <%= f.label :q2, "Q2" %> <%= yp.text_field :q2 %><br/>
+    <%= f.label :q3, "Q3" %> <%= yp.text_field :q3 %><br/>
+    <%= f.label :q4, "Q4" %> <%= yp.text_field :q4 %><br/>
+  <% end %>
+</div>
+  </fieldset>
+  </div>
+  <div>
+  <fieldset style="display:block; clear:both;">
+  <legend>วิธีจัดกิจกรรม <%= link_to "Help", helps_path, :target => "_blank" %><a href="javascript:void(0)" class="hide_show">Hide</a></legend>
+   <div class="block_content">
+    <p class="form_header">
+    <label>Activity</label>
+    <label>ความเข้มข้น</label>
+    <label style="width:150px">ผู้จัดกิจกรรม</label>
+    <label style="width:150px">หน่วยงานรับผิดชอบ</label>
+    </p>
+    <%= f.fields_for :activities_projects do |ps| %>
+    <div>
+     <%= ps.select :activity_id, Activity.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'เลือกประเภทกิจกรรม'}, :style => "width:100px" %>
+<%= ps.select :weight, (0..4), {:prompt => 'เลือกความเข้มข้น'}, :style => "width:100px" %>
+    <%= ps.text_field :provider, :style => "width:150px" %>
+    <%= ps.text_field :sponsor, :style => "width:150px" %>
+
+        <%= ps.link_to_remove "Remove" %>
+      </div>
+     <% end %>
+
+    <p><%= f.link_to_add "Add New Activity", :activities_projects %></p>
+    </div>
+  </fieldset>
+  </div>
+
+  <div>
+  <fieldset>
+  <legend>ทีมงานที่ต้องใช้ <a href="javascript:void(0)" class="hide_show">Hide</a></legend>
+    <div class="block_content">
+    <p class="staff_header">
+      <label class="select_staff">ประเภททีมงาน</label>
+      <label class="amount">2553</label>
+      <label class="amount">2554</label>
+      <label class="amount">2555</label>
+    </p>
+    <%= f.fields_for :projects_staffs do |ps| %>
+    <div>
+     <%= ps.select :staff_id, Staff.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'เลือกประเภทของทีมงาน'}, :class => "select_staff"  %>
+      <%= ps.text_field :amount1, :class => "amount" %>
+      <%= ps.text_field :amount2, :class => "amount" %>
+      <%= ps.text_field :amount3, :class => "amount" %>
+
+
+        <%= link_to "Train", edit_projects_staff_progress_path(ps.object, :format => :js), :remote => true   unless ps.object.id.nil? %>
+
+        <%= ps.link_to_remove "Remove" %>
+      </div>
+     <% end %>
+
+    <p><%= f.link_to_add "Add a project staff", :projects_staffs %></p>
+
+
+</div>
+
+    </fieldset>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+    <div id="progress_output">
+    </div>
+<% end %>
+<script>
+$(".hide_show").toggle(function(){
+  $(this).text("Show");
+  var pd = $(this).closest("div");
+  $("div.block_content", pd).hide();
+}, function(){
+  $(this).text("Hide");
+  var pd = $(this).closest("div");
+  $("div.block_content", pd).show();
+});
+</script>
+

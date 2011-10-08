@@ -1,0 +1,52 @@
+<script type="text/javascript" charset="utf-8">
+$(function(){
+        	// Variables
+         $(".edit").inlay({
+          finish:function(){
+            //console.log("");
+            $.get("/form/get_total_youth", function(data){
+              $("#tbl_total").html(data);
+            });
+          }
+         });
+         $(".edit_place").inlay({
+          finish:function(){
+            //console.log("");
+            $.get("/form/get_total_youth", function(data){
+              $("#tbl_total").html(data);
+            });
+          }
+         });
+         $(".edit_com").inlay({
+          finish:function(){
+            //console.log("");
+            $.get("/form/get_total_youth", function(data){
+              $("#tbl_total").html(data);
+            });
+          }
+         });
+         $(".youth").each(function(){
+            var tbl_name = $(this).attr("tbl");
+            var id = $(this).attr("lr12_id")
+            //console.log(id);
+            $(this).editable("/form/save_value", {
+              submitdata : {tbl: tbl_name, lr12_id : id},
+              width:"70px",
+              style:"inherit",
+            });
+
+          });
+          $(".com").each(function(){
+            var tbl_name = $(this).attr("tbl");
+            var id = $(this).attr("lr13_id")
+            //console.log(id);
+            $(this).editable("/form/save_value", {
+              submitdata : {tbl: tbl_name, lr12_id : id},
+              width:"70px",
+              style:"inherit",
+            });
+
+          });
+			} );
+		</script>
+

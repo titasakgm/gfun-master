@@ -1,0 +1,63 @@
+
+<% form_tag("/form/add_school", :remote => true, :format => :js) do %>
+โรงเรียน
+<select name="school_id">
+<option value="-1">Select a school</option>
+<% @schools.each  do |school| %>
+  <option value='<%= school.id %>'><%= school.name %></option>
+<% end %>
+</select>
+<input type="submit" value="Add" />
+<% end %>
+<div id="user_schools">
+<table>
+<thead>
+<tr>
+<th>โรงเรียน</th><th>นักเรียนชาย</th><th>นักเรียนหญิง</th>
+</tr>
+</thead>
+<tbody>
+<% @lr11s.each do |lr| %>
+<tr><td><%= lr.school.name %></td><td><span class="stu_male" sch_id="<%= lr.school_id %>" id="stu_male_<%= lr.id %>" style="display: inline"><%= lr.male_no %></span></td><td><span class="stu_female" sch_id="<%= lr.school_id %>" id="stu_female_<%= lr.id %>" style="display: inline"><%= lr.female_no %></span></td></tr>
+
+<% end %>
+</tbody>
+</table>
+<script>
+$(function(){
+
+
+  $(".editable_textarea").editable("http://www.appelsiini.net/projects/jeditable/php/save.php", {
+      indicator : "<img src='img/indicator.gif'>",
+      type   : 'textarea',
+      submitdata: { _method: "put" },
+      select : true,
+      submit : 'OK',
+      cancel : 'cancel',
+      cssclass : "editable"
+  });
+  $(".stu_male").each(function(){
+    var id = $(this).attr("sch_id");
+    //console.log(id);
+    $(this).editable("/form/save_student_male", {
+      submitdata : {sch_id: id},
+      width:"70px",
+      style:"inherit",
+    });
+
+  });
+  $(".stu_female").each(function(){
+    var id = $(this).attr("sch_id");
+    //console.log(id);
+    $(this).editable("/form/save_student_female", {
+      submitdata : {sch_id: id},
+      width:"70px",
+      style:"inherit",
+
+    });
+   });
+ });
+</script>
+
+</div>
+

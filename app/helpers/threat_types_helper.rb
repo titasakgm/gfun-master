@@ -1,0 +1,2 @@
+module ThreatTypesHelper
+end

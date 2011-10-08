@@ -1,0 +1,39 @@
+<h1>Listing lb202556s</h1>
+<h3>แผนพัฒนาสมรรถนะทีมงานระดับอปท. 2556</h3>
+<table>
+  <tr>
+  <th rowspan=2>ประเภททีมงานที่ต้องใช้</th><th rowspan=2>จำนวนทีมงานที่ต้องใช้</th><th rowspan=2>จำนวนทีมงานที่มีอยู่</th>
+	<th rowspan=2>จำนวนทีมงานที่ต้องหาเพิ่ม</th><th rowspan=2>จำนวนทีมงานที่ต้องการให้พัฒนาสมรรถนะ</th><th rowspan=2>จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะในปี 2556</th>
+	<th colspan=3>สิ่งที่ต้องการการสนับสนุนจากภายนอก (อำเภอ จังหวัด)</th>
+	<th rowspan=2></th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+	</tr>
+	<tr>
+						<th>งบประมาณ</th><th>วิทยากร</th><th>เครื่องมือ เอกสารแนวทาง วิธีการดำเนินงาน</th>
+</tr>
+
+
+<% @lb202556s.each do |lb202556| %>
+  <tr>
+    <!-- <td><%= lb202556.user_id %></td> -->
+    <td><%= ApplicationController::TEAM_TYPE.index(lb202556.team_type.to_i) %></td>
+    <td><%= lb202556.team_no %></td>
+    <td><%= lb202556.e_team_no %></td>
+    <td><%= lb202556.f_team_no %></td>
+    <td><%= lb202556.wd_team_no %></td>
+    <td><%= lb202556.pd_team_no %></td>
+    <td><%= lb202556.budget %></td>
+    <td><%= lb202556.trainner %></td>
+    <td><%= lb202556.tool %></td>
+    <td><%= link_to 'แสดง', lb202556 %></td>
+    <td><%= link_to 'แก้ไข', edit_lb202556_path(lb202556) %></td>
+    <td><%= link_to 'ลบ', lb202556, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lb202556', new_lb202556_path %>
+

@@ -1,0 +1,40 @@
+<h1>Listing lr402s</h1>
+
+<table>
+<caption>โครงการกิจกรรมที่คิดว่าควรมีการดำเนินงานเพื่อป้องกันแก้ไขปัญหาในสามปีข้างหน้า (ปี 2554-2556)</caption>
+  <tr>
+    <th>ชื่อโครงการ/กิจกรรม</th>
+    <th>กลุ่มเป้าหมาย</th>
+    <th>จำนวนกลุ่มเป้าหมายตามแผนปี 2554</th>
+    <th>งบปี 2554</th>
+    <th>จำนวนกลุ่มเป้าหมายตามแผนปี 2555</th>
+    <th>งบปี 2555</th>
+    <th>จำนวนกลุ่มเป้าหมายแผนปี 2556</th>
+    <th>งบปี 2556</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr402s.each do |lr402| %>
+  <tr>
+    <!-- <td><%= lr402.user_id %></td> -->
+    <td><%= lr402.project_name %></td>
+    <td><%= ApplicationController::TARGET_GROUP.index(lr402.target_name) %></td>
+    <td><%= lr402.target1_no %></td>
+    <td><%= lr402.budget1 %></td>
+    <td><%= lr402.target2_no %></td>
+    <td><%= lr402.budget2 %></td>
+    <td><%= lr402.target3_no %></td>
+    <td><%= lr402.budget3 %></td>
+    <td><%= link_to 'แสดง', lr402 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr402_path(lr402) %></td>
+    <td><%= link_to 'ลบ', lr402, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr402', new_lr402_path %>
+

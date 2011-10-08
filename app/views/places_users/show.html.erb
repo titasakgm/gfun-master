@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Place:</b>
+  <%= @places_user.place_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @places_user.user_id %>
+</p>
+
+<p>
+  <b>Male no:</b>
+  <%= @places_user.male_no %>
+</p>
+
+<p>
+  <b>Female no:</b>
+  <%= @places_user.female_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_places_user_path(@places_user) %> |
+<%= link_to 'Back', places_users_path %>

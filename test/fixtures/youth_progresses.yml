@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: 1
+
+two:
+  project_id: 1
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: 1
+
+# == Schema Information
+#
+# Table name: youth_progresses
+#
+#  id         :integer         not null, primary key
+#  project_id :integer
+#  q1         :integer
+#  q2         :integer
+#  q3         :integer
+#  q4         :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

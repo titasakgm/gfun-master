@@ -1,0 +1,42 @@
+<h1>ข้อมูลเยาวชนในชุมชน(เยาวชนที่ไม่ได้เรียนและไม่ได้ทำงาน)</h1>
+
+*เยาวชนในชุมชน ในที่นี้หมายถึง เยาวชนที่ไม่รวมเยาวชนในสถานศึกษา และสถานประกอบการ เช่้น เยาวชนที่ไม่ได้เรียนและไม่ได้ทำงาน เบาวชนที่ประกอบอาชีพอิสระ และเกษตรกรรมในชุมชน
+<br><br>
+<table>
+  <tr>
+    <th>ชุมชน</th>
+    <th>จำนวนเยาวชนชาย</th>
+    <th>จำนวนเยาวชนหญิง</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @communities_users.each do |communities_user| %>
+  <tr>
+    <td><%= communities_user.community.name %></td>
+    <td><%= communities_user.male_no %></td>
+    <td><%= communities_user.female_no %></td>
+    <td><%= link_to 'แสดง', communities_user %></td>
+    <td><%= link_to 'แก้ไข', edit_communities_user_path(communities_user) %></td>
+    <td><%= link_to 'ลบ', communities_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+
+<table>
+<thead><tr><th>รวมจำนวนชุมชน</th><th>รวมจำนวนเยาวชนชาย</th><th>รวมจำนวนเยาวชนหญิง</th><th>รวมจำนวนเยาวชนทั้งหมด</th></tr></thead>
+<tbody>
+  <tr>
+    <td><%= current_user.communities_users.count %></td>
+    <td><%= m = current_user.communities_users.sum(:male_no) %></td>
+    <td><%= f = current_user.communities_users.sum(:female_no) %></td>
+    <td><%= m + f %></td>
+  </tr>
+</tbody>
+</table>
+<br />
+<%= link_to 'เพิ่มชุมชน', new_communities_user_path %>
+

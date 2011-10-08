@@ -1,0 +1,28 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  comunity__id: 1
+  code_table_id: 1
+  user_id: 1
+  youth_no: 1
+
+two:
+  comunity__id: 1
+  code_table_id: 1
+  user_id: 1
+  youth_no: 1
+
+
+# == Schema Information
+#
+# Table name: lr13s
+#
+#  id            :integer         not null, primary key
+#  community_id  :integer
+#  code_table_id :integer
+#  user_id       :integer
+#  youth_no      :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

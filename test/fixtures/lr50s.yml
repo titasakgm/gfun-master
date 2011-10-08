@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  health_service: MyString
+  youth_2554: 1
+  youth_2555: 1
+  youth_2556: 1
+
+two:
+  user_id: 1
+  health_service: MyString
+  youth_2554: 1
+  youth_2555: 1
+  youth_2556: 1
+
+# == Schema Information
+#
+# Table name: lr50s
+#
+#  id             :integer         not null, primary key
+#  user_id        :integer
+#  health_service :string(255)
+#  youth_2554     :integer
+#  youth_2555     :integer
+#  youth_2556     :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+

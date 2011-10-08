@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  health_service: MyString
+  youth_no: 1
+  define_date: 2010-12-26 00:30:38
+
+two:
+  user_id: 1
+  health_service: MyString
+  youth_no: 1
+  define_date: 2010-12-26 00:30:38
+
+# == Schema Information
+#
+# Table name: lr46s
+#
+#  id             :integer         not null, primary key
+#  user_id        :integer
+#  health_service :string(255)
+#  youth_no       :integer
+#  define_date    :datetime
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+

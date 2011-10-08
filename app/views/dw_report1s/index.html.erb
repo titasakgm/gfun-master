@@ -1,0 +1,35 @@
+<h1>Listing dw_report1s</h1>
+
+<table>
+  <tr>
+    <th>Special group name</th>
+    <th>Special group</th>
+    <th>Project2</th>
+    <th>Project2 title</th>
+    <th>A budget</th>
+    <th>Budget src</th>
+    <th>Budget src title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dw_report1s.each do |dw_report1| %>
+  <tr>
+    <td><%= dw_report1.special_group_name %></td>
+    <td><%= dw_report1.special_group_id %></td>
+    <td><%= dw_report1.project2_id %></td>
+    <td><%= dw_report1.project2_title %></td>
+    <td><%= dw_report1.a_budget %></td>
+    <td><%= dw_report1.budget_src_id %></td>
+    <td><%= dw_report1.budget_src_title %></td>
+    <td><%= link_to 'แสดง', dw_report1 %></td>
+    <td><%= link_to 'แก้ไข', edit_dw_report1_path(dw_report1) %></td>
+    <td><%= link_to 'ลบ', dw_report1, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dw report1', new_dw_report1_path %>

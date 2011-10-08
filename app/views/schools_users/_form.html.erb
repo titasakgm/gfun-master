@@ -1,0 +1,31 @@
+<%= form_for(@schools_user) do |f| %>
+  <% if @schools_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schools_user.errors.count, "error") %> prohibited this schools_user from being saved:</h2>
+
+      <ul>
+      <% @schools_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :เลือกสถานศึกษา %><br />
+
+ <%= f.select :school_id, current_user.ladmin.schools.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'เลือกโรงเรียน'}, :style => "width:200px" %>  ถ้าไม่มีในรายการ <%= link_to "เพิ่มชื่อสถานศึกษาที่นี่", schools_path, :target => "_blank" %>
+  </div>
+  <div class="field">
+    <%= f.label :จำนวนเยาวชนชาย %><br />
+    <%= f.text_field :male_no %>
+  </div>
+  <div class="field">
+    <%= f.label :จำนวนเยาวชนหญิง %><br />
+    <%= f.text_field :female_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit  "บันทึก" %>
+  </div>
+<% end %>
+

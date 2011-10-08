@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+body{
+  font: 13px/1.5 "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+}
+td{
+  text-align:right;
+}
+table{
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin: 1em;
+}
+td , th{
+  border: 1px solid #000;
+  padding: 3px 6px;
+}
+th{
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<%
+group = ["X", "Y", "Z"]
+%>
+
+<h1>Summary report 's อบต. 1</h1>
+<table>
+<thead>
+<tr>
+<th>No.</th><th>Project Name</th><th>Target Pop</th><th>No. of Target No.</th><th>Budget</th>
+</tr>
+</thead>
+<tbody>
+<% (1..10).each do |i| %>
+<tr><td><%= i %></td><td>Project <%= i %></td><td>กลุ่ม <%= group[i % 3] %></td><td><%= 1000*i %></td><td><%= 1000*200*i %></td></tr>
+<% end %>
+</tbody>
+</table>
+</body>
+</html>
+

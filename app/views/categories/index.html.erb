@@ -1,0 +1,25 @@
+<h1>รายชื่อสังกัด</h1>
+
+<table>
+  <tr>
+    <th>สังกัด</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to 'แสดง', category %></td>
+    <td><%= link_to 'แก้ไข', edit_category_path(category) %></td>
+    <td><%= link_to 'ลบ', category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @categories %>
+
+<%= link_to 'เพิ่มรายชื่อสังกัด', new_category_path %>
+

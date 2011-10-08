@@ -1,0 +1,66 @@
+<!-- <a href="#related_table">ตารางที่เกี่ยวข้อง</a>-->
+<table cellspacing=0>
+<thead>
+<tr>
+<th>กลุ่มเยาวชนในแต่ละสถานที่</th>
+<th>จำนวนเยาวชนที่ได้รับกิจกรรมในปี 2553</th>
+<th>อัตราส่วนร้อยละที่ได้รับกิจกรรมเทียบกับแผน</th>
+<th>อัตราส่วนร้อยละที่ได้รับกิจกรรมเทียบกับจำนวนในพื้นที่</th>
+</tr>
+</thead>
+<tbody>
+<%
+edu = current_user.lr45s.where("target_name = 'edu'").sum(:target_no)
+edu_p = current_user.lr40s.where("target_name = 'edu'").sum(:target_no)
+total_edu = current_user.lr11s.sum(:male_no) + current_user.lr11s.sum(:female_no)
+
+place = current_user.lr45s.where("target_name = 'place'").sum(:target_no)
+place_p = current_user.lr40s.where("target_name = 'place'").sum(:target_no)
+total_place = current_user.lr12s.sum(:youth_no)
+
+soc = current_user.lr45s.where("target_name = 'social'").sum(:target_no)
+soc_p = current_user.lr40s.where("target_name = 'social'").sum(:target_no)
+total_soc = current_user.lr13s.sum(:youth_no)
+%>
+<tr><td>สถานศึกษา</td><td><%= edu %></td><td><%= (edu * 100.0 / edu_p) unless edu_p == 0%></td><td><%= edu * 100.0 / total_edu unless total_edu == 0 %></td></tr>
+<tr><td>สถานประกอบการ</td><td><%= place %></td>
+<td><%= place * 100.0 / place_p unless place_p == 0%></td>
+<td><%= place * 100.0 / total_place unless total_place == 0 %></td>
+</tr>
+<tr><td>ชุมชน</td><td><%= soc %></td>
+<td><%= soc * 100.0 / soc_p unless soc_p == 0%></td>
+<td><%= soc * 100.0 / total_soc unless total_soc == 0 %></td></tr>
+<tr><td>รวม</td><td><%= current_user.lr45s.sum(:target_no) %></td>
+<td><%= current_user.lr45s.sum(:target_no) * 100.00 / current_user.lr40s.sum(:target_no) %></td><td><%=  (edu + place + soc)*100.00 / (total_edu + total_place + total_soc) %></td></tr>
+</tbody>
+</table>
+
+<table cellspacing=0>
+<thead>
+<tr>
+<th>บริการสุขภาพสังคม</th>
+<th>จำนวนเยาวชนที่ได้รับบริการในปี 2553</th>
+<th>อัตราส่วนร้อยละที่ได้รับบริการเทียบกับจำนวนในพื้นที่</th>
+</tr>
+</thead>
+<tbody>
+<% current_user.lr46s.each do |r| %>
+<tr><td><%= r.health_service %></td><td><%= r.youth_no %></td><td><%= (r.youth_no * 100.00) / (total_edu + total_place + total_soc) %></td></tr>
+<% end %>
+<!--
+<tr><td>บริการให้คำแนะนำปรึกษาเบื้องต้นและการพัฒนาทักษะเพื่อปรับเปลี่ยนพฤติกรรม</td><td></td><td></td></tr>
+<tr><td>บริการคำปรึกษาและตรวจเลือดเพื่อหาเชื้อเอชไอวี</td><td></td><td></td></tr>
+<tr><td>บริการอนามัยเจริญพันธุ์</td><td></td><td></td></tr>-->
+</tbody>
+</table>
+<% content_for :left_nav do %>
+
+<% end %>
+<!--
+<a name="related_table">ตารางที่เกี่ยวข้อง</a>
+<ul>
+<li><a href="/lr40s">โครงการกิจกรรมเพื่อการป้องกันแก้ไขปัญหาอนามัยเจริญพันธุ์และเอดส์ และจำนวนกลุ่มเป้าหมายในปีที่ผ่านมา(2553)</a></li>
+<li><a href="/form/lr45">จำนวนกลุ่มเป้าหมายที่ได้รับกิจกรรมป้องกันแก้ไขปัญหาอนามัยเจริญพันธุ์และเอดส์ ในปีที่ผ่านมา(2553)(ผลการดำเนินงานโครงการ)</a></li>
+<li><a href="/form/lr46">จำนวนกลุ่มเป้าหมายที่บริการสุขภาพสังคมที่เกี่ยวข้องในปีที่ผ่านมา(2553)</a></li>
+</ul>-->
+

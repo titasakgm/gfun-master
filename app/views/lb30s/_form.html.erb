@@ -1,0 +1,29 @@
+<h3>จำนวนทีมงานที่วางแผนพัฒนาสมรรถนะในปี 2554 (ตามงบประมาณที่ได้รับ)</h3>
+<%= form_for(@lb30) do |f| %>
+  <% if @lb30.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lb30.errors.count, "error") %> prohibited this lb30 from being saved:</h2>
+
+      <ul>
+      <% @lb30.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'lb30[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :team_type, "ประเภททีมงานที่ต้องใช้" %><br />
+    <%= f.select(:team_type, ApplicationController::TEAM_TYPE , {:prompt => 'เลือกประเภท'}) %>
+    <!-- <%= f.text_field :team_type %> -->
+  </div>
+  <div class="field">
+    <%= f.label :pd_team_no, "จำนวนทีมงานวางแผนพัฒนาสมรรถนะ" %><br />
+    <%= f.text_field :pd_team_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

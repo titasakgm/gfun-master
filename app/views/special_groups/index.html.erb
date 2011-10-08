@@ -1,0 +1,25 @@
+<h1>รายการกลุ่มเปราะบาง</h1>
+
+<table>
+  <tr>
+    <th>กลุ่มเปราะบาง</th>
+    <th>รายละเอียด</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @special_groups.each do |special_group| %>
+  <tr>
+    <td><%= special_group.title %></td>
+    <td><%= special_group.description %></td>
+    <td><%= link_to 'แสดง', special_group %></td>
+    <td><%= link_to 'แก้ไข', edit_special_group_path(special_group) %></td>
+    <td><%= link_to 'ลบ', special_group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มกลุ่มเปราะบาง', new_special_group_path %>

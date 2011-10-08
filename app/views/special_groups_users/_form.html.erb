@@ -1,0 +1,33 @@
+<%= simple_form_for (@special_groups_user) do |f| %>
+  <%= f.error_messages %>
+    
+  <span>
+  <%= f.association :special_group, :prompt => "เลือกกลุ่ม", :label => "กลุ่มเปราะบาง" %>ถ้าไม่มีในตัวเลือก <%= link_to "เพิ่มกลุ่มเปราะบางที่นี่", special_groups_path, :target => "_blank" %>
+  </span>
+
+  <%= f.input :flag, :label => "สถานะ", :collection => [["มีแต่ไม่ทราบจำนวน" ,"have0"], ["มี" , "have"]], :prompt => "เลือกสถานะ" %>
+  <%= f.input :amount, :label => "จำนวน" %>
+ <%= f.button :submit, :value => "บันทึก" %>
+
+<% end %>
+<script type="text/javascript">
+$(function(){
+  $("#special_groups_user_flag").change(function(){
+
+    if( $(this).val() == "have" ){
+      $("#special_groups_user_amount").removeAttr('disabled');
+
+    }else{
+      $("#special_groups_user_amount").attr('disabled', 'disabled').val("");
+    }
+  });
+  if( $("#special_groups_user_flag").val() == "have" ){
+    $("#special_groups_user_amount").removeAttr('disabled');
+
+  }else{
+    $("#special_groups_user_amount").attr('disabled', 'disabled').val("");
+
+  }
+});
+</script>
+

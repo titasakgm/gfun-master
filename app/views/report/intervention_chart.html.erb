@@ -1,0 +1,72 @@
+
+<script type="text/javascript">
+
+	var chart;
+	$(document).ready(function() {
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'container',
+				defaultSeriesType: 'column'
+			},
+			title: {
+				text: 'ความครอบคลุมของ intervention สำหรับแต่ละกลุ่มเป้าหมาย'
+			},
+			xAxis: {
+				categories: ['ชุมชม', 'สถานประกอบการ', 'สถานศึกษา', 'รวม']
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'จำนวนคน'
+				}
+			},
+			legend: {
+
+						backgroundColor: '#FFFFFF',
+						color: '#333'
+
+					},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.x +'</b><br/>'+
+						 this.series.name +': '+ this.y +'<br/>'+
+						 'Total: '+ this.point.stackTotal;
+				}
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal'
+				}
+			},
+			<% project_ids = current_user.project2s.collect { |p| p.id } %>
+		  <%
+        t = Target.find_by_code('soc')
+        nsoc = t.project2s.where(:id => project_ids).sum(:year1n)
+        tsoc = current_user.communities_users.sum("female_no + male_no").to_i
+
+        t = Target.find_by_code('place')
+        nplace = t.project2s.where(:id => project_ids).sum(:year1n)
+        tplace = current_user.places_users.sum("female_no + male_no").to_i
+
+        t = Target.find_by_code('edu')
+        nedu = t.project2s.where(:id => project_ids).sum(:year1n)
+        tedu = current_user.schools_users.sum("female_no + male_no").to_i
+
+      %>
+		    series: [{
+				name: 'ไม่ได้รับกิจกรรม',
+
+				data: [ <%= n1 = tsoc - nsoc %>, <%= n2 = tplace - nplace %>, <%=  n3 = tedu - nedu %>, <%= n1 + n2 + n3 %>]
+			}, {
+				name: 'ได้รับกิจกรรม',
+
+				data: [<%= nsoc %>, <%= nplace %>, <%= nedu %>, <%= nsoc + nplace + nedu %>]
+			}]
+		});
+
+
+	});
+
+</script>
+	<div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
+

@@ -1,0 +1,25 @@
+<h1>Listing staffs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @staffs.each do |staff| %>
+  <tr>
+    <td><%= staff.title %></td>
+    <td><%= staff.description %></td>
+    <td><%= link_to 'แสดง', staff %></td>
+    <td><%= link_to 'แก้ไข', edit_staff_path(staff) %></td>
+    <td><%= link_to 'ลบ', staff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Staff', new_staff_path %>

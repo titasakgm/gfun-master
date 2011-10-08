@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  threat_type_id: 1
+  title: MyString
+
+two:
+  threat_type_id: 1
+  title: MyString
+
+
+# == Schema Information
+#
+# Table name: threats
+#
+#  id             :integer         not null, primary key
+#  threat_type_id :integer
+#  title          :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  weight         :integer
+#
+

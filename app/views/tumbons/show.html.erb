@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @tumbon.name %>
+</p>
+
+<p>
+  <b>Amphur:</b>
+  <%= @tumbon.amphur_id %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_tumbon_path(@tumbon) %> |
+<%= link_to 'Back', tumbons_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @school.name %>
+</p>
+
+<p>
+  <b>Changwat:</b>
+  <%= @school.changwat %>
+</p>
+
+<p>
+  <b>Ccode:</b>
+  <%= @school.ccode %>
+</p>
+
+<p>
+  <b>Amphur:</b>
+  <%= @school.amphur %>
+</p>
+
+<p>
+  <b>Acode:</b>
+  <%= @school.acode %>
+</p>
+
+<p>
+  <b>Tambon:</b>
+  <%= @school.tambon %>
+</p>
+
+<p>
+  <b>Tcode:</b>
+  <%= @school.tcode %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

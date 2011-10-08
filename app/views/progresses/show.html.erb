@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Projects staff:</b>
+  <%= @progress.projects_staff_id %>
+</p>
+
+<p>
+  <b>Q1:</b>
+  <%= @progress.q1 %>
+</p>
+
+<p>
+  <b>Q2:</b>
+  <%= @progress.q2 %>
+</p>
+
+<p>
+  <b>Q3:</b>
+  <%= @progress.q3 %>
+</p>
+
+<p>
+  <b>Q4:</b>
+  <%= @progress.q4 %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_progress_path(@progress) %> |
+<%= link_to 'Back', progresses_path %>

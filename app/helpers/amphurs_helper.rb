@@ -1,0 +1,2 @@
+module AmphursHelper
+end

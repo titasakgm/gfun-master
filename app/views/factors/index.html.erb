@@ -1,0 +1,28 @@
+<h1>Listing factors</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Code</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @factors.each do |factor| %>
+  <tr>
+    <td><%= factor.title %></td>
+    <td><%= factor.code %></td>
+    <td><%= factor.description %></td>
+    <td><%= link_to 'แสดง', factor %></td>
+    <td><%= link_to 'แก้ไข', edit_factor_path(factor) %></td>
+    <td><%= link_to 'ลบ', factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Factor', new_factor_path %>
+

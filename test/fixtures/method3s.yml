@@ -1,0 +1,59 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project2_id: 1
+  target_id: 1
+  title: MyString
+  year1_n: 1
+  year2_n: 1
+  year3_n: 1
+  step1_title: MyString
+  step2_title: MyString
+  step3_title: MyString
+  step4_title: MyString
+  step1_dens: 1
+  step2_dens: 1
+  step3_dens: 1
+  step4_dens: 1
+
+two:
+  project2_id: 1
+  target_id: 1
+  title: MyString
+  year1_n: 1
+  year2_n: 1
+  year3_n: 1
+  step1_title: MyString
+  step2_title: MyString
+  step3_title: MyString
+  step4_title: MyString
+  step1_dens: 1
+  step2_dens: 1
+  step3_dens: 1
+  step4_dens: 1
+
+
+# == Schema Information
+#
+# Table name: method3s
+#
+#  id          :integer         not null, primary key
+#  project2_id :integer
+#  target_id   :integer
+#  title       :string(255)
+#  year1_n     :integer
+#  year2_n     :integer
+#  year3_n     :integer
+#  step1_title :string(255)
+#  step2_title :string(255)
+#  step3_title :string(255)
+#  step4_title :string(255)
+#  step1_dens  :integer
+#  step2_dens  :integer
+#  step3_dens  :integer
+#  step4_dens  :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  is_check    :boolean
+#
+

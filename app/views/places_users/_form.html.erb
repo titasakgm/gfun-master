@@ -1,0 +1,32 @@
+<%= form_for(@places_user) do |f| %>
+  <% if @places_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@places_user.errors.count, "error") %> prohibited this places_user from being saved:</h2>
+
+      <ul>
+      <% @places_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :สถานประกอบการ %><br />
+
+   <%= f.select :place_id, current_user.ladmin.places.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'เลือกสถานประกอบการ'}, :style => "width:200px" %>  ถ้าไม่มีในรายการ <%= link_to "เพิ่มสถานประกอบการที่นี่", places_path, :target => "_blank" %>
+
+  </div>
+  <div class="field">
+    <%= f.label :จำนวนเยาวชนชาย %><br />
+    <%= f.text_field :male_no %>
+  </div>
+  <div class="field">
+    <%= f.label :จำนวนเยาวชนหญิง %><br />
+    <%= f.text_field :female_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit  "บันทึก" %>
+  </div>
+<% end %>
+

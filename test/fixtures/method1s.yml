@@ -1,0 +1,36 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project2_id: 1
+  year1_n: 1
+  year2_n: 1
+  year3_n: 1
+  density: 1
+  title: MyString
+
+two:
+  project2_id: 1
+  year1_n: 1
+  year2_n: 1
+  year3_n: 1
+  density: 1
+  title: MyString
+
+
+# == Schema Information
+#
+# Table name: method1s
+#
+#  id          :integer         not null, primary key
+#  project2_id :integer
+#  year1_n     :integer
+#  year2_n     :integer
+#  year3_n     :integer
+#  density     :integer
+#  title       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  target_id   :integer
+#  is_check    :boolean
+#
+

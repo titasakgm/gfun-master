@@ -1,0 +1,90 @@
+<script type="text/javascript">
+
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container',
+						defaultSeriesType: 'column'
+					},
+					title: {
+						text: 'งบประมาณที่ต้องใช้ 3 ปี'
+					},
+					xAxis: {
+						categories: [
+							'ชุมชม',
+							'สถานประกอบการ',
+							'สถานศึกษา'
+						]
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'งบประมาณ (บาท)'
+						}
+					},
+					legend: {
+
+						backgroundColor: '#FFFFFF',
+						color: '#333'
+
+					},
+					tooltip: {
+						formatter: function() {
+							return ''+
+								this.x +': '+ this.y +' บาท';
+						}
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					<%
+					  project_ids = current_user.project2s.collect { |p| p.id }
+            t = Target.find_by_code('soc')
+            p = t.project2s.where(:id => project_ids, :fiscal_year => 54)
+
+            y1_soc = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 1).sum(:budget)
+            y2_soc =  Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 2).sum(:budget)
+            y3_soc =  Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 3).sum(:budget)
+
+            t = Target.find_by_code('place')
+            p = t.project2s.where(:id => project_ids, :fiscal_year => 54)
+            y1_place = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 1).sum(:budget)
+            y2_place = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 2).sum(:budget)
+            y3_place = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 3).sum(:budget)
+
+            t = Target.find_by_code('edu')
+            p = t.project2s.where(:id => project_ids, :fiscal_year => 54)
+            y1_edu = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 1).sum(:budget)
+            y2_edu = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 2).sum(:budget)
+            y3_edu = Project2BudgetSrc.where(:project2_id => p.collect { |temp| temp.id }, :nyear => 3).sum(:budget)
+
+					%>
+				        series: [{
+						name: 'ปี 54',
+						data: [<%= y1_soc %>, <%= y1_place %>, <%= y1_edu %>]
+
+					}, {
+						name: 'ปี 55',
+						data: [<%= y2_soc %>, <%= y2_place %>, <%= y2_edu %>]
+
+					}, {
+						name: 'ปี 56',
+						data: [<%= y3_soc %>, <%= y3_place %>, <%= y3_edu %>]
+
+					}]
+				});
+
+
+			});
+
+		</script>
+
+
+
+		<!-- 3. Add the container -->
+		<div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
+

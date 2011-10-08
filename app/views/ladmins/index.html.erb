@@ -1,0 +1,21 @@
+<h1>Listing ladmins</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ladmins.each do |ladmin| %>
+  <tr>
+    <td><%= link_to 'แสดง', ladmin %></td>
+    <td><%= link_to 'แก้ไข', edit_ladmin_path(ladmin) %></td>
+    <td><%= link_to 'ลบ', ladmin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ladmin', new_ladmin_path %>

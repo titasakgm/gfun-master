@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project2_id: 1
+  special_group_id: 1
+
+two:
+  project2_id: 1
+  special_group_id: 1
+
+# == Schema Information
+#
+# Table name: project2_special_groups
+#
+#  id               :integer         not null, primary key
+#  project2_id      :integer
+#  special_group_id :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+

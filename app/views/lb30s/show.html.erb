@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @lb30.user_id %>
+</p>
+
+<p>
+  <b>Team type:</b>
+  <%= @lb30.team_type %>
+</p>
+
+<p>
+  <b>Pd team no:</b>
+  <%= @lb30.pd_team_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_lb30_path(@lb30) %> |
+<%= link_to 'Back', lb30s_path %>

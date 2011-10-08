@@ -1,0 +1,53 @@
+<h1>Listing method2s</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Target</th>
+    <th>Title</th>
+    <th>Year1 n</th>
+    <th>Year2 n</th>
+    <th>Year3 n</th>
+    <th>Step1 title</th>
+    <th>Step2 title</th>
+    <th>Step3 title</th>
+    <th>Step4 title</th>
+    <th>Step5 title</th>
+    <th>Step1 dens</th>
+    <th>Step2 dens</th>
+    <th>Step3 dens</th>
+    <th>Step4 dens</th>
+    <th>Step5 dens</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @method2s.each do |method2| %>
+  <tr>
+    <td><%= method2.project2_id %></td>
+    <td><%= method2.target_id %></td>
+    <td><%= method2.title %></td>
+    <td><%= method2.year1_n %></td>
+    <td><%= method2.year2_n %></td>
+    <td><%= method2.year3_n %></td>
+    <td><%= method2.step1_title %></td>
+    <td><%= method2.step2_title %></td>
+    <td><%= method2.step3_title %></td>
+    <td><%= method2.step4_title %></td>
+    <td><%= method2.step5_title %></td>
+    <td><%= method2.step1_dens %></td>
+    <td><%= method2.step2_dens %></td>
+    <td><%= method2.step3_dens %></td>
+    <td><%= method2.step4_dens %></td>
+    <td><%= method2.step5_dens %></td>
+    <td><%= link_to 'แสดง', method2 %></td>
+    <td><%= link_to 'แก้ไข', edit_method2_path(method2) %></td>
+    <td><%= link_to 'ลบ', method2, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Method2', new_method2_path %>

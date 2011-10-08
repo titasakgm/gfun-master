@@ -1,0 +1,127 @@
+(function( $ ){
+
+  var methods = {
+     init : function( options ) {
+        var settings = {
+          'location'         : 'top',
+          'background-color' : '#fff',
+          'draggable' : true,
+          'url': false,
+          'output':false,
+          'content':false
+        };
+
+
+       return this.each(function(){
+          if ( options ) {
+            $.extend( settings, options );
+          }
+
+         var $this = $(this),
+             data = $this.data('tooltip'),
+             tooltip = $('<div />', {
+               text : $this.attr('title')
+             });
+
+         if ( ! data ) {
+
+           /*
+             Do more setup stuff here
+           */
+           /*
+           $(this).data('tooltip', {
+               target : $this,
+               tooltip : tooltip
+           });
+           */
+         }
+         //console.log(tooltip);
+         // If the plugin hasn't been initialized yet
+         $this.css("background-color", settings['background-color']);
+         //var offset = $this.position();
+         //console.log(offset);
+         var id = $this.attr("id")+"_inlay_container";
+         var rid = $this.attr("id");
+         var control = '<div class="inlay_control" id="'+rid+'_control"><a href="javascript:void(0)" class="close">X</a></div>';
+         $this.wrap('<div class="inlay_container" id="'+id+'"/>');
+         $this.parents('.inlay_container').css("background-color", $this.css("background-color"));
+         //console.log($this.parents());
+         //var c = $('#'+id).append('<div class="inlay_action" id="'+rid+'_action" />');
+         var c = $this.parents(".inlay_container").append('<div class="inlay_action" id="'+rid+'_action" />');
+
+         c.find(".inlay_action").append(control).append("<div id='"+rid+"_inlay_output' class='inlay_output'></div>");
+         //console.log(c.find(".inlay_action"));
+         c.find(".inlay_action").draggable();
+         c.find(".inlay_action").resizable();
+         var offset;
+         $this.bind("click", function(){
+             var url;
+             if(settings['content'] != false){
+                $this.parent().find(".inlay_output").html(settings['content']);
+                $this.next('.inlay_action').toggle();
+                offset = $this.next(".inlay_action").offset();
+                return false;
+             }
+             if(settings['url'] != false)
+                url = settings['url'];
+             else  url = $this.attr("href");
+             $.get(url, function(data){
+               //console.log(data);
+               if(settings['output'] != false){
+                $this.parent().find(".inlay_output").html(data);
+                $(settings['output']).html($this.next(".inlay_action").html());
+               }else{
+                //console.log("me");
+                $this.parent().find(".inlay_output").html(data);
+                $this.next('.inlay_action').toggle();
+                offset = $this.next(".inlay_action").offset();
+               }
+             });
+             return false;
+
+         });
+         //console.log($this.siblings(".inlay_action").find("a.close"));
+         $this.siblings(".inlay_action").find("a.close").bind("click", function(){
+            //console.log(offset);
+            $(this).parents(".inlay_action").hide().css("top", offset.top).css("left", offset.left);
+
+         })
+
+
+         /*
+         $(".inlay_control a.close").click(function(){
+          console.log("hide");
+          $(this).parents(".inlay_action").hide();
+         });
+         */
+
+       });
+     },
+     destroy : function( ) {
+
+       return this.each(function(){
+
+
+       })
+
+     },
+     reposition : function( ) {  },
+     show : function( ) {  },
+     hide : function( ) {  },
+     update : function( content ) { }
+  };
+
+  $.fn.inlay = function( method ) {
+
+    if ( methods[method] ) {
+      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+    }
+
+  };
+
+})( jQuery );
+

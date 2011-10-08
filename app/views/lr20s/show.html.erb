@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @lr20.user_id %>
+</p>
+
+<p>
+  <b>Behavior problem:</b>
+  <%= @lr20.behavior_problem %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @lr20.status %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_lr20_path(@lr20) %> |
+<%= link_to 'Back', lr20s_path %>

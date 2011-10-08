@@ -1,0 +1,29 @@
+<h1>Listing lb30s</h1>
+
+<table>
+<caption>จำนวนทีมงานที่วางแผนพัฒนาสมรรถนะในปี 2554 (ตามงบประมาณที่ได้รับ)</caption>
+  <tr>
+  <th>ประเภททีมงานที่ต้องใช้</th>
+  <th>จำนวนทีมงานวางแผนพัฒนาสมรรถนะ</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lb30s.each do |lb30| %>
+  <tr>
+    <!-- <td><%= lb30.user_id %></td> -->
+    <td><%= ApplicationController::TEAM_TYPE.index(lb30.team_type.to_i) %></td>
+    <!-- <td><%= lb30.team_type %></td> -->
+    <td><%= lb30.pd_team_no %></td>
+    <td><%= link_to 'แสดง', lb30 %></td>
+    <td><%= link_to 'แก้ไข', edit_lb30_path(lb30) %></td>
+    <td><%= link_to 'ลบ', lb30, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lb30', new_lb30_path %>
+

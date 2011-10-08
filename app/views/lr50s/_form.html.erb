@@ -1,0 +1,40 @@
+<h3>จำนวนเยาวชนรับบริการสุขภาพสังคมโดยประมาณในสามปีข้างหน้า(ปี 2554-2556)</h3>
+<%= form_for(@lr50) do |f| %>
+  <% if @lr50.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr50.errors.count, "error") %> prohibited this lr50 from being saved:</h2>
+
+      <ul>
+      <% @lr50.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>-->
+  <%= hidden_field_tag 'lr50[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :health_service, "บริการสุขภาพสังคมที่ต้องเตรียม" %><br />
+    <%= f.text_field :health_service %>
+  </div>
+  <div class="field">
+    <%= f.label :youth_2554, "คาดประมาณจำนวนเยาวชนรับบริการ 2554" %><br />
+    <%= f.text_field :youth_2554 %>
+  </div>
+  <div class="field">
+    <%= f.label :youth_2555, "คาดประมาณจำนวนเยาวชนรับบริการ 2555" %><br />
+    <%= f.text_field :youth_2555 %>
+  </div>
+  <div class="field">
+    <%= f.label :youth_2556, "คาดประมาณจำนวนเยาวชนรับบริการ 2556" %><br />
+    <%= f.text_field :youth_2556 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

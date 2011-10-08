@@ -1,0 +1,48 @@
+<!--
+<div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
+<br/>-->
+<h2>สรุปความก้าวหน้าและผลในการระดมทรัพยากรงบประมาณ</h2>
+<table>
+
+<thead>
+<tr><th>หน่วยงานที่จะขอการสนับสนุนงบประมาณ</th><th>จำนวนเงินที่วางไว้ตามแผนที่ยุทธศาสตร์</th>
+<th> จำนวนเงินที่ขอตามแผนขาขึ้น</th><th> จำนวนเงินที่ได้รับการอนุมัติจากแผนขาลง</th>
+</tr>
+</thead>
+<tbody>
+<% @project_ids = current_user.project2s.map { |p| p.id } %>
+<% BudgetSrc.all.each do |bs| %>
+<tr>
+  <th scope="row"><%= bs.title %></th>
+  <td>
+  <% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :budget_src_id => bs.id, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:a_budget) %>
+  </td>
+  <td>
+  <% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :budget_src_id => bs.id, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:b_budget) %></td>
+  <td>
+  <% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :budget_src_id => bs.id, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:c_budget) %></td>
+</tr>
+<% end %>
+<tr><th scope="row">รวม</th>
+<td>
+<% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:a_budget) %>
+</td>
+<td>
+<% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:b_budget) %>
+</td>
+<td>
+<% project2_ids = Project2BudgetSrc.where(:project2_id => @project_ids, :nyear => 1).map { |pbs| pbs.project2_id } %>
+  <%= Project2.where(:id => project2_ids).sum(:c_budget) %>
+</td>
+</tr>
+</tbody>
+
+
+
+</table>
+

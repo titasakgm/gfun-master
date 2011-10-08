@@ -1,0 +1,31 @@
+<h1>Listing lr11s</h1>
+
+<table>
+  <tr>
+    <th>School </th>
+    <th>Code table</th>
+    <th>User</th>
+    <th>Male no</th>
+    <th>Female no</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr11s.each do |lr11| %>
+  <tr>
+    <td><%= lr11.school__id %></td>
+    <td><%= lr11.code_table_id %></td>
+    <td><%= lr11.user_id %></td>
+    <td><%= lr11.male_no %></td>
+    <td><%= lr11.female_no %></td>
+    <td><%= link_to 'แสดง', lr11 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr11_path(lr11) %></td>
+    <td><%= link_to 'ลบ', lr11, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr11', new_lr11_path %>

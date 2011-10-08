@@ -1,0 +1,20 @@
+<% unless current_user %>
+<ul id="left_nav_menu">
+<li>ข้อมูล
+  <ul>
+    <li><%= link_to "สถานศึกษา", schools_users_path %></li>
+    <li><%= link_to "สถานประกอบการ", places_users_path %></li>
+    <li><%= link_to "ชุมชน", communities_users_path %></li>
+    <li><%= link_to "กลุ่มเฉพาะ", special_groups_users_path %></li>
+
+  </ul>
+</li>
+<li>situation problems
+  <ul>
+    <li>ปัญหาเชิงพฤติกรรม</li>
+    <li>สถานที่</li>
+  </ul>
+</li>
+</ul>
+<% end %>
+

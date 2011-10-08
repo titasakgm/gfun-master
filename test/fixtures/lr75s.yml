@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  service_name: MyString
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: 1
+
+two:
+  user_id: 1
+  service_name: MyString
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: 1
+
+# == Schema Information
+#
+# Table name: lr75s
+#
+#  id           :integer         not null, primary key
+#  user_id      :integer
+#  service_name :string(255)
+#  q1           :integer
+#  q2           :integer
+#  q3           :integer
+#  q4           :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+

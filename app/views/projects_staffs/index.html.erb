@@ -1,0 +1,29 @@
+<h1>Listing projects_staffs</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Staff</th>
+    <th>Year</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects_staffs.each do |projects_staff| %>
+  <tr>
+    <td><%= projects_staff.project_id %></td>
+    <td><%= projects_staff.staff_id %></td>
+    <td><%= projects_staff.year %></td>
+    <td><%= projects_staff.amount %></td>
+    <td><%= link_to 'แสดง', projects_staff %></td>
+    <td><%= link_to 'แก้ไข', edit_projects_staff_path(projects_staff) %></td>
+    <td><%= link_to 'ลบ', projects_staff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Projects staff', new_projects_staff_path %>

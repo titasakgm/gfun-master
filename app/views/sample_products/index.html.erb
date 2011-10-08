@@ -1,0 +1,23 @@
+<h1>Listing sample_products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sample_products.each do |sample_product| %>
+  <tr>
+    <td><%= sample_product.name %></td>
+    <td><%= link_to 'แสดง', sample_product %></td>
+    <td><%= link_to 'แก้ไข', edit_sample_product_path(sample_product) %></td>
+    <td><%= link_to 'ลบ', sample_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sample product', new_sample_product_path %>

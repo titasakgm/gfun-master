@@ -1,0 +1,31 @@
+<h1>Listing activities_projects</h1>
+
+<table>
+  <tr>
+    <th>Activity</th>
+    <th>Project</th>
+    <th>Freq</th>
+    <th>Provider</th>
+    <th>Sponsor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activities_projects.each do |activities_project| %>
+  <tr>
+    <td><%= activities_project.activity_id %></td>
+    <td><%= activities_project.project_id %></td>
+    <td><%= activities_project.freq %></td>
+    <td><%= activities_project.provider %></td>
+    <td><%= activities_project.sponsor %></td>
+    <td><%= link_to 'แสดง', activities_project %></td>
+    <td><%= link_to 'แก้ไข', edit_activities_project_path(activities_project) %></td>
+    <td><%= link_to 'ลบ', activities_project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activities project', new_activities_project_path %>

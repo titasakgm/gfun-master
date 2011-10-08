@@ -1,0 +1,16 @@
+<h3 style="display:inline-block">รายการโครงการ</h3> | <%= link_to "สรุปโครงการ", report_target_path , :target => "_blank" %>
+<br/>
+<%= link_to 'เพิ่มโครงการใหม่', new_project2_path, :class => "new_project" %>
+<% @project2s.each do |p| %>
+  <div>
+  <h2><%= p.title %></h2>
+  <p>
+  <span>
+    <%= link_to 'ดูรายละเอียด', project2_path(p), :action => :show %>&nbsp;|&nbsp;
+    <%= link_to 'แก้ไข', edit_project2_path(p) %>&nbsp;|&nbsp;
+    <%= link_to 'ลบ', p, :confirm => 'Are you sure?', :method => :delete, :class => "delete_project" %>
+    <hr>
+  </span>
+  </p>
+  </div>
+<% end %>

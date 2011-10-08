@@ -1,0 +1,53 @@
+<%= form_for(@lr45) do |f| %>
+  <% if @lr45.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr45.errors.count, "error") %> prohibited this lr45 from being saved:</h2>
+
+      <ul>
+      <% @lr45.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>-->
+  <%= hidden_field_tag 'lr45[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :project_name, "ชื่อโครงการ/กิจกรรม"%><br />
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field">
+    <%= f.label :target_name, "กลุ่มเป้าหมาย" %><br />
+    <%= f.select(:target_name, ApplicationController::TARGET_GROUP , {:prompt => 'เลือกกลุ่ม'}) %>
+    <!-- <%= f.text_field :target_name %> -->
+  </div>
+  <div class="field">
+    <%= f.label :activity_name, "ลักษณะกิจกรรม" %><br />
+    <%= f.text_field :activity_name %>
+  </div>
+  <div class="field">
+    <%= f.label :real_budget, "งบประมาณที่ได้รับจริง" %><br />
+    <%= f.text_field :real_budget %>
+  </div>
+  <div class="field">
+    <%= f.label :supporter, "หน่วยงานที่สนับสนุนงบและทรัพยากร" %><br />
+    <%= f.text_field :supporter %>
+  </div>
+  <div class="field">
+    <%= f.label :target_no, "จำนวนกลุ่มเป้าหมายที่ได้รับกิจกรรมปี 2553" %><br />
+    <%= f.text_field :target_no %>
+  </div>
+<!--
+  <div class="field">
+    <%= f.label :define_date %><br />
+    <%= f.datetime_select :define_date %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

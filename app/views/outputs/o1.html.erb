@@ -1,0 +1,14 @@
+<h3>แสดงผล ทีมงานที่จะต้องใช้ในสามปี เพื่อประกอบการวางแผนพัฒนาทีมงาน</h3>
+<table>
+<thead>
+<tr>
+<th>ประเภททีมงานที่ต้องใช้</th><th>จำนวนทีมงานที่ต้องใช้ปี 2554</th><th>จำนวนทีมงานที่ต้องใช้ปี 2555</th><th>จำนวนทีมงานที่ต้องใช้ปี 2556</th>
+</tr>
+</thead>
+<tbody>
+<% ApplicationController::TEAM_TYPE.each do |k,v| %>
+<tr><td><%= k %></td><td><%= current_user.lr60s.where("team_type = '#{v}'").sum(:team_no) %></td><td><%= current_user.lr602555s.where("team_type = '#{v}'").sum(:team_no) %></td><td><%= current_user.lr602556s.where("team_type = '#{v}'").sum(:team_no) %></td></tr>
+<% end %>
+</tbody>
+</table>
+

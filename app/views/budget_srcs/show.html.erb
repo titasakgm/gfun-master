@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @budget_src.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @budget_src.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_budget_src_path(@budget_src) %> |
+<%= link_to 'Back', budget_srcs_path %>

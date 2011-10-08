@@ -1,0 +1,29 @@
+<h1>Listing project2_budget_srcs</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Budget src</th>
+    <th>Budget</th>
+    <th>Nyear</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project2_budget_srcs.each do |project2_budget_src| %>
+  <tr>
+    <td><%= project2_budget_src.project2_id %></td>
+    <td><%= project2_budget_src.budget_src_id %></td>
+    <td><%= project2_budget_src.budget %></td>
+    <td><%= project2_budget_src.nyear %></td>
+    <td><%= link_to 'แสดง', project2_budget_src %></td>
+    <td><%= link_to 'แก้ไข', edit_project2_budget_src_path(project2_budget_src) %></td>
+    <td><%= link_to 'ลบ', project2_budget_src, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project2 budget src', new_project2_budget_src_path %>

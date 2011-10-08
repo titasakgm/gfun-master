@@ -1,0 +1,80 @@
+class User < ActiveRecord::Base
+  acts_as_authentic
+  belongs_to :province
+  belongs_to :amphur
+  belongs_to :ladmin
+  has_and_belongs_to_many :schools
+  named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
+  has_many :lr11s
+  has_many :lr12s
+  has_many :lr13s
+  has_many :lr14s
+  has_many :lr20s
+  has_many :lr30s
+  has_many :lr40s
+  has_many :lr45s
+  has_many :lr46s
+
+  has_many :lr60s
+  has_many :lr602555s
+  has_many :lr602556s
+
+  has_many :lb202554s
+  has_many :lb202555s
+  has_many :lb202556s
+
+  has_many :lb402554s
+  has_many :lb402555s
+  has_many :lb402556s
+
+  has_many :lr65s
+
+  has_many :lb30s
+  has_many :lb40s
+
+  has_many :lr70s
+  has_many :lr75s
+  has_many :lr402s
+  ROLES = %w[admin lad amp prov reg center]
+  PRINT_ROLES = {"admin" => "admin", "lad" => "อปท.", "amp" => "อำเภอ", "prov" => "จังหวัด", "reg" => "เขต", "center" => "ส่วนกลาง"}
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
+  end
+
+  def roles
+    ROLES.reject { |r| ((roles_mask || 0) & 2**ROLES.index(r)).zero? }
+  end
+
+  def role_symbols
+    roles.map(&:to_sym)
+  end
+  def role?(role)
+    roles.include? role.to_s
+  end
+
+end
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                :integer         not null, primary key
+#  login             :string(255)     not null
+#  crypted_password  :string(255)     not null
+#  password_salt     :string(255)     not null
+#  persistence_token :string(255)     not null
+#  login_count       :integer         default(0), not null
+#  last_request_at   :datetime
+#  last_login_at     :datetime
+#  current_login_at  :datetime
+#  last_login_ip     :string(255)
+#  current_login_ip  :string(255)
+#  province_id       :integer
+#  amphur_id         :integer
+#  ladmin_id         :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  roles_mask        :integer
+#
+

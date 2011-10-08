@@ -1,0 +1,28 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desciption: MyText
+  address: MyText
+  tumbon_id: 1
+
+two:
+  name: MyString
+  desciption: MyText
+  address: MyText
+  tumbon_id: 1
+
+
+# == Schema Information
+#
+# Table name: places
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  desciption :text
+#  address    :text
+#  created_at :datetime
+#  updated_at :datetime
+#  ladmin_id  :integer
+#
+

@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  school__id: 1
+  code_table_id: 1
+  user_id: 1
+  male_no: 1
+  female_no: 1
+
+two:
+  school__id: 1
+  code_table_id: 1
+  user_id: 1
+  male_no: 1
+  female_no: 1
+
+# == Schema Information
+#
+# Table name: lr11s
+#
+#  id            :integer         not null, primary key
+#  school_id     :integer
+#  code_table_id :integer
+#  user_id       :integer
+#  male_no       :integer
+#  female_no     :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

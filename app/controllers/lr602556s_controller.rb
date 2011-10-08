@@ -1,0 +1,84 @@
+class Lr602556sController < ApplicationController
+  # GET /lr602556s
+  # GET /lr602556s.xml
+  def index
+    @lr602556s = current_user.lr602556s
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @lr602556s }
+    end
+  end
+
+  # GET /lr602556s/1
+  # GET /lr602556s/1.xml
+  def show
+    @lr602556 = Lr602556.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @lr602556 }
+    end
+  end
+
+  # GET /lr602556s/new
+  # GET /lr602556s/new.xml
+  def new
+    @lr602556 = Lr602556.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @lr602556 }
+    end
+  end
+
+  # GET /lr602556s/1/edit
+  def edit
+    @lr602556 = Lr602556.find(params[:id])
+  end
+
+  # POST /lr602556s
+  # POST /lr602556s.xml
+  def create
+    @lr602556 = Lr602556.new(params[:lr602556])
+
+    respond_to do |format|
+      if @lr602556.save
+        format.html { redirect_to(@lr602556, :notice => 'Lr602556 was successfully created.') }
+        format.xml  { render :xml => @lr602556, :status => :created, :location => @lr602556 }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @lr602556.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /lr602556s/1
+  # PUT /lr602556s/1.xml
+  def update
+    @lr602556 = Lr602556.find(params[:id])
+
+    respond_to do |format|
+      if @lr602556.update_attributes(params[:lr602556])
+        format.html { redirect_to(@lr602556, :notice => 'Lr602556 was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @lr602556.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /lr602556s/1
+  # DELETE /lr602556s/1.xml
+  def destroy
+    @lr602556 = Lr602556.find(params[:id])
+    @lr602556.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(lr602556s_url) }
+      format.xml  { head :ok }
+    end
+  end
+end
+

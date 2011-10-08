@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @social_problem.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @social_problem.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_social_problem_path(@social_problem) %> |
+<%= link_to 'Back', social_problems_path %>

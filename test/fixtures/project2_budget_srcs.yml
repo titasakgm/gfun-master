@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project2_id: 1
+  budget_src_id: 1
+  budget: 9.99
+  nyear: 1
+
+two:
+  project2_id: 1
+  budget_src_id: 1
+  budget: 9.99
+  nyear: 1
+
+# == Schema Information
+#
+# Table name: project2_budget_srcs
+#
+#  id            :integer         not null, primary key
+#  project2_id   :integer
+#  budget_src_id :integer
+#  budget        :decimal(, )
+#  nyear         :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

@@ -1,0 +1,33 @@
+<h1>Listing method1s</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Year1 n</th>
+    <th>Year2 n</th>
+    <th>Year3 n</th>
+    <th>Density</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @method1s.each do |method1| %>
+  <tr>
+    <td><%= method1.project2_id %></td>
+    <td><%= method1.year1_n %></td>
+    <td><%= method1.year2_n %></td>
+    <td><%= method1.year3_n %></td>
+    <td><%= method1.density %></td>
+    <td><%= method1.title %></td>
+    <td><%= link_to 'แสดง', method1 %></td>
+    <td><%= link_to 'แก้ไข', edit_method1_path(method1) %></td>
+    <td><%= link_to 'ลบ', method1, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Method1', new_method1_path %>

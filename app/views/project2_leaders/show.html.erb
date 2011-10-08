@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project2:</b>
+  <%= @project2_leader.project2_id %>
+</p>
+
+<p>
+  <b>Leader:</b>
+  <%= @project2_leader.leader_id %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_project2_leader_path(@project2_leader) %> |
+<%= link_to 'Back', project2_leaders_path %>

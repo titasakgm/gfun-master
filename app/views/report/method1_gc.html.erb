@@ -1,0 +1,50 @@
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+  google.load('visualization', '1', {packages:['gauge']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Label');
+    data.addColumn('number', 'Value');
+    data.addRows(4);
+    data.setValue(0, 0, 'Info');
+    <% project_ids = current_user.project2s.collect { |p| p.id } %>
+    <% m = Method1.where(:project2_id => project_ids) %>
+    <% v = ( m.sum(:density).to_f / (m.count * 4.0) ) * 100.0 %>
+    data.setValue(0, 1, <%= "%.2f" % v %>);
+    data.setValue(1, 0, "Attitude");
+    <% m = Method2.where(:project2_id => project_ids) %>
+
+    <% v = (m.sum("step1_dens + step2_dens + step3_dens + step4_dens + step5_dens").to_f / (m.count * 20.0) ) * 100.0 %>
+    data.setValue(1, 1, <%= "%.2f" % v %>);
+    data.setValue(2, 0, 'Leader');
+    <% m = Method3.where(:project2_id => project_ids) %>
+
+    <% v = (m.sum("step1_dens + step2_dens + step3_dens + step4_dens").to_f / (m.count * 16.0) ) * 100.0 %>
+    data.setValue(2, 1, <%= "%.2f" % v %>);
+
+    data.setValue(3, 0, 'Service');
+      <% m = Method4.where(:project2_id => project_ids) %>
+
+    <% v = (m.sum("density").to_f / (m.count * 4.0) ) * 100.0 %>
+    data.setValue(3, 1, <%= "%.2f" % v %>);
+
+    var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+    var options = {width: 400, height: 500, redFrom: 0, redTo: 33,
+        yellowFrom:34, yellowTo: 66, greenFrom:67, greenTo:100, minorTicks: 5};
+    chart.draw(data, options);
+  }
+</script>
+<h1>ระดับคุณภาพของกลวิธี</h1>
+<div id='chart_div'></div>
+<dl>
+  <dt>Info</dt>
+  <dd>การให้ความรู้ ข้อมูล ข่าวสาร</dd>
+  <dt>Attitude</dt>
+  <dd>การปรับทัศนคติและพัฒนาทักษะ </dd>
+  <dt>Leader</dt>
+  <dd>การจัดแกนนำเพื่อเข้าถึงกลุ่มเป้าหมาย </dd>
+  <dt>Service</dt>
+  <dd>เครือข่ายบริการสุขภาพที่เป็นมิตรกับเยาวชน</dd>
+</dl>
+

@@ -1,0 +1,25 @@
+<h1>Listing project2_special_groups</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Special group</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project2_special_groups.each do |project2_special_group| %>
+  <tr>
+    <td><%= project2_special_group.project2_id %></td>
+    <td><%= project2_special_group.special_group_id %></td>
+    <td><%= link_to 'แสดง', project2_special_group %></td>
+    <td><%= link_to 'แก้ไข', edit_project2_special_group_path(project2_special_group) %></td>
+    <td><%= link_to 'ลบ', project2_special_group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project2 special group', new_project2_special_group_path %>

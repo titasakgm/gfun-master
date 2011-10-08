@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+
+two:
+  title: MyString
+  description: MyText
+
+
+# == Schema Information
+#
+# Table name: activities
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  code        :string(255)
+#
+

@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  projects_staff_id: 1
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: MyString
+
+two:
+  projects_staff_id: 1
+  q1: 1
+  q2: 1
+  q3: 1
+  q4: MyString
+
+# == Schema Information
+#
+# Table name: progresses
+#
+#  id                :integer         not null, primary key
+#  projects_staff_id :integer
+#  q1                :integer
+#  q2                :integer
+#  q3                :integer
+#  q4                :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+

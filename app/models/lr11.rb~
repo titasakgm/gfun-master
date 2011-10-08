@@ -1,0 +1,6 @@
+class Lr11 < ActiveRecord::Base
+  belongs_to :school
+  belongs_to :user
+  validates :school_id, :uniqueness => { :scope => [:user_id] }
+end
+

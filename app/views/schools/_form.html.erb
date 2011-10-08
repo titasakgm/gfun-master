@@ -1,0 +1,57 @@
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'สังกัด' %><br />
+    <%= f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'เลือกสังกัด'}, :style => "width:200px" %>  ถ้าไม่มีในรายการ <%= link_to "เพิ่มสังกัดที่นี่", categories_path, :target => "_blank" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'ชื่อสถานศึกษา' %><br />
+    <%= f.text_field :name %>
+  </div>
+
+<!--
+  <div class="field">
+    <%= f.label 'จังหวัด' %><br />
+    <%= f.text_field :changwat %>
+  </div>
+
+<div class="field">
+    <%= f.label 'รหัสจังหวัด' %><br />
+    <%= f.text_field :ccode %>
+
+ </div>
+  <div class="field">
+    <%= f.label 'อำเภอ' %><br />
+    <%= f.text_field :amphur %>
+  </div>
+  <div class="field">
+    <%= f.label 'รหัสอำเภอ' %><br />
+    <%= f.text_field :acode %>
+  </div> -
+
+  <div class="field">
+    <%= f.label 'ตำบล' %><br />
+    <%= f.text_field :tambon %>
+  </div>
+  <div class="field">
+    <%= f.label 'รหัสตำบล' %><br />
+    <%= f.text_field :tcode %>
+  </div>
+//-->
+
+  <div class="actions">
+    <%= f.submit  "บันทึก" %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# encoding: utf-8
+class Problem < ActiveRecord::Base
+
+  FLAG = { "ไม่มี" => 0, "มีบ้าง" => 1, "มีมาก" => 2, "ไม่ทราบค่า" => 3}
+end
+
+
+# == Schema Information
+#
+# Table name: problems
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  type_name   :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

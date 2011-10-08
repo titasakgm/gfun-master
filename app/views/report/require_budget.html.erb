@@ -1,0 +1,33 @@
+<h3>สรุปความต้องการงบประมาณ</h3>
+<table>
+<thead>
+<tr><th rowspan=2>หน่วยงานที่ขอการสนับสนุน</th><th rowspan=2>จำนวนโครงการ</th><th colspan=4>งบประมาณ</th></tr>
+<tr><th>ปีที่ 1</th><th>ปีที่ 2</th><th>ปีที่ 3</th><th>รวมงบประมาณ 3 ปี</th></tr>
+</thead>
+<tbody>
+<% project2_ids = current_user.project2s.map { |p| p.id } %>
+<% BudgetSrc.all.each do |bs| %>
+<tr>
+<td><%= bs.title %></td>
+<td>
+<%= Project2BudgetSrc.where(:project2_id => project2_ids, :budget_src_id => bs.id).count %>
+</td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids, :budget_src_id => bs.id, :nyear => 1).sum(:budget) %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids, :budget_src_id => bs.id, :nyear => 2).sum(:budget) %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids, :budget_src_id => bs.id, :nyear => 3).sum(:budget) %></td>
+
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids, :budget_src_id => bs.id).sum(:budget) %></td>
+
+</tr>
+<% end %>
+<tr>
+<td>รวม</td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids).where("budget_src_id is not null").count %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids,:nyear => 1).where("budget_src_id is not null").sum(:budget) %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids,:nyear => 2).where("budget_src_id is not null").sum(:budget) %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids,:nyear => 3).where("budget_src_id is not null").sum(:budget) %></td>
+<td><%= Project2BudgetSrc.where(:project2_id => project2_ids).where("budget_src_id is not null").sum(:budget) %></td>
+</tr>
+</tbody>
+</table>
+

@@ -1,0 +1,24 @@
+<h1>Listing amphurs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @amphurs.each do |amphur| %>
+  <tr>
+    <td><%= amphur.name %></td>
+    <td><%= link_to 'แสดง', amphur %></td>
+    <td><%= link_to 'แก้ไข', edit_amphur_path(amphur) %></td>
+    <td><%= link_to 'ลบ', amphur, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Amphur', new_amphur_path %>
+

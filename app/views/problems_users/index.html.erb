@@ -1,0 +1,27 @@
+<h1>รายการปัญหาที่พบในเยาวชน</h1>
+
+<table>
+  <tr>
+    <th>ปัญหา</th>
+    <th>Flag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @problems_users.each do |problems_user| %>
+  <tr>
+    <td><%= problems_user.problem.title rescue nil %></td>
+
+    <td><%= Problem::FLAG.key(problems_user.flag.to_i) rescue nil %></td>
+    <td><%= link_to 'แสดง', problems_user %></td>
+    <td><%= link_to 'แก้ไข', edit_problems_user_path(problems_user) %></td>
+    <td><%= link_to 'ลบ', problems_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มรายการปัญหาที่พบในเยาวชน', new_problems_user_path %>
+

@@ -1,0 +1,18 @@
+<%= simple_form_for(@dw_report1) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :special_group_name %>
+    <%= f.input :special_group_id %>
+    <%= f.input :project2_id %>
+    <%= f.input :project2_title %>
+    <%= f.input :a_budget %>
+    <%= f.input :budget_src_id %>
+    <%= f.input :budget_src_title %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

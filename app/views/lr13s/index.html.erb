@@ -1,0 +1,29 @@
+<h1>Listing lr13s</h1>
+
+<table>
+  <tr>
+    <th>Comunity </th>
+    <th>Code table</th>
+    <th>User</th>
+    <th>Youth no</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lr13s.each do |lr13| %>
+  <tr>
+    <td><%= lr13.comunity__id %></td>
+    <td><%= lr13.code_table_id %></td>
+    <td><%= lr13.user_id %></td>
+    <td><%= lr13.youth_no %></td>
+    <td><%= link_to 'แสดง', lr13 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr13_path(lr13) %></td>
+    <td><%= link_to 'ลบ', lr13, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr13', new_lr13_path %>

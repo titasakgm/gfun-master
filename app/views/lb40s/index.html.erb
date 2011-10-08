@@ -1,0 +1,36 @@
+<h1>Listing lb40s</h1>
+
+<table>
+<caption>จำนวนทีมงานที่ได้รับการพัฒนาสมรรถนะ ปี 2554</caption>
+  <tr>
+  <th rowspan=2>ประเภททีมงาน</th><th colspan=4>จำนวนทีมงานที่ได้รับการพัฒนาสมรรถนะ ปี 2554</th>
+  <th rowspan=2>%ได้รับการพัฒนาสมรรถนะเทียบกับแผน</th>
+	 <th rowspan=2></th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+
+	</tr>
+	<tr>
+	<th>ไตรมาส 1</th><th>ไตรมาส 2</th><th>ไตรมาส 3</th><th>ไตรมาส 4</th>
+</tr>
+
+<% @lb40s.each do |lb40| %>
+  <tr>
+    <!-- <td><%= lb40.user_id %></td> -->
+    <td><%= ApplicationController::TEAM_TYPE.index(lb40.team_type.to_i) %></td>
+    <td><%= lb40.q1 %></td>
+    <td><%= lb40.q2 %></td>
+    <td><%= lb40.q3 %></td>
+    <td><%= lb40.q4 %></td>
+    <td><%= (lb40.q1 + lb40.q2 + lb40.q3 + lb40.q4)*100.0 / current_user.lb30s.find_by_team_type(lb40.team_type).pd_team_no unless current_user.lb30s.find_by_team_type(lb40.team_type).nil? %></td>
+    <td><%= link_to 'แสดง', lb40 %></td>
+    <td><%= link_to 'แก้ไข', edit_lb40_path(lb40) %></td>
+    <td><%= link_to 'ลบ', lb40, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lb40', new_lb40_path %>
+

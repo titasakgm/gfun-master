@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  team_type: MyString
+  pd_team_no: 1
+
+two:
+  user_id: 1
+  team_type: MyString
+  pd_team_no: 1
+
+# == Schema Information
+#
+# Table name: lb30s
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  team_type  :string(255)
+#  pd_team_no :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

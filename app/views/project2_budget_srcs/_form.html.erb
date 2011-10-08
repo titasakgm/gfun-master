@@ -1,0 +1,15 @@
+<%= simple_form_for(@project2_budget_src) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :project2_id %>
+    <%= f.input :budget_src_id %>
+    <%= f.input :budget %>
+    <%= f.input :nyear %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

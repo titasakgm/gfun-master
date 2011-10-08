@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @lr65.user_id %>
+</p>
+
+<p>
+  <b>Project name:</b>
+  <%= @lr65.project_name %>
+</p>
+
+<p>
+  <b>Target name:</b>
+  <%= @lr65.target_name %>
+</p>
+
+<p>
+  <b>Activity type:</b>
+  <%= @lr65.activity_type %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%= @lr65.budget %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @lr65.owner %>
+</p>
+
+<p>
+  <b>Target no:</b>
+  <%= @lr65.target_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_lr65_path(@lr65) %> |
+<%= link_to 'Back', lr65s_path %>

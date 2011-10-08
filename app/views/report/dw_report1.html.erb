@@ -1,0 +1,10 @@
+<table>
+<% @rows.each do |r| %>
+<tr>
+<%= raw "
+  <td>#{r.special_group_name}</td><td>#{r.project_title}</td><td></td>
+  <td></td>
+" %>
+</tr>
+<% end %>
+

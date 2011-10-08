@@ -1,0 +1,58 @@
+<h3>สรุปโครงการและงบประมาณแยกตามกลุ่มเป้าหมาย</h3>
+<table cellspacing=0>
+<thead>
+<tr><th>กลุ่มเป้าหมาย</th><th>โครงการ</th><th>งบประมาณ</th><th>หน่วยงานที่จะขอสนับสนุนงบประมาณ</th></tr>
+</thead>
+<tbody>
+<% project_ids = current_user.project2s.map { |p| p.id } %>
+<% Target.all.each do |t| %>
+<tr><td colspan=4><%= t.title %></td></tr>
+<% Project2Target.where(:project2_id => project_ids, :target_id => t.id).each do |pt| %>
+<tr><td></td>
+<td><%= pt.project2.title %></td>
+<td><%= pt.project2.project2_budget_srcs.where(:nyear => 1).sum(:budget) %></td>
+<td>
+<% pt.project2.project2_budget_srcs.where(:nyear => 1).select("distinct(budget_src_id)").each do  |bs| %>
+ <%= BudgetSrc.find(bs.budget_src_id).title + " " rescue nil %>
+<% end %>
+</td>
+</tr>
+<% end %>
+<tr>
+<td>รวม</td>
+<td><%= Project2Target.where(:project2_id => project_ids, :target_id => t.id).count %></td>
+<td>
+<% p2_ids = Project2Target.where(:project2_id => project_ids, :target_id => t.id).map { |pt| pt.project2_id} %>
+<%= Project2BudgetSrc.where(:project2_id => p2_ids, :nyear => 1).sum(:budget) %>
+</td>
+<td></td>
+</tr>
+
+<% end %>
+<% current_user.special_groups.each do |sp| %>
+   <% pids = current_user.project2_ids %>
+  <% ps = Project2SpecialGroup.where(:project2_id => pids, :special_group_id => sp.id )%>
+  <% next if ps.empty? %>
+  <tr>
+
+  <td colspan=4><%= sp.title %></td>
+  </tr>
+
+
+   <% ps.each do |p| %>
+  <tr>
+    <td></td>
+    <td><%= Project2.find(p.project2_id).title %></td>
+    <td><%= Project2.find(p.project2_id).project2_budget_srcs.where(:nyear => 1).sum(:budget) %></td>
+    <td>
+      <% Project2.find(p.project2_id).project2_budget_srcs.where(:nyear => 1).select("distinct(budget_src_id)").each do  |bs| %>
+        <%= BudgetSrc.find(bs.budget_src_id).title + " " rescue nil %>
+      <% end %>
+    </td>
+   </tr>
+   <% end %>
+
+<% end %>
+</tbody>
+</table>
+

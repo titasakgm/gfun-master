@@ -1,0 +1,28 @@
+<h1>Listing activities</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Code</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%= activity.title %></td>
+    <td><%= activity.code %></td>
+    <td><%= activity.description %></td>
+    <td><%= link_to 'แสดง', activity %></td>
+    <td><%= link_to 'แก้ไข', edit_activity_path(activity) %></td>
+    <td><%= link_to 'ลบ', activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activity', new_activity_path %>
+

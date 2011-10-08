@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @group_problem.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @group_problem.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_group_problem_path(@group_problem) %> |
+<%= link_to 'Back', group_problems_path %>

@@ -1,0 +1,34 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  changwat: MyString
+  ccode: MyString
+  amphur: MyString
+  acode: MyString
+  tambon: MyString
+  tcode: MyString
+
+two:
+  name: MyString
+  changwat: MyString
+  ccode: MyString
+  amphur: MyString
+  acode: MyString
+  tambon: MyString
+  tcode: MyString
+
+# == Schema Information
+#
+# Table name: schools
+#
+#  id       :integer         not null, primary key
+#  name     :string(255)
+#  changwat :string(255)
+#  ccode    :string(255)
+#  amphur   :string(255)
+#  acode    :string(255)
+#  tambon   :string(255)
+#  tcode    :string(255)
+#
+

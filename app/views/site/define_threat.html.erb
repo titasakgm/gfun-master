@@ -1,0 +1,14 @@
+<%= form_tag site_save_threat_path,  :class => "simple_form" do %>
+  <% ThreatType.all.each do |tt| %>
+    <fieldset>
+      <legend><%= tt.title %></legend>
+      <% tt.threats.each do |t| %>
+        <%= check_box_tag "threat_id[]", t.id, current_user.threats.include?(t) %><strong><%= t.title %></strong><br/>
+      <% end %>
+      <p>
+      <%= submit_tag "Save" %>
+      </p>
+    </fieldset>
+  <% end %>
+<% end %>
+

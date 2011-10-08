@@ -1,0 +1,35 @@
+<h1>Listing lr75s</h1>
+
+<table>
+ <caption>จำนวนเยาวชนรับบริการสุขภาพสังคม</caption>
+ <tr>
+  <th rowspan=2>บริการสุขภาพสังคม</th><th colspan=4>จำนวนกลุ่มเป้าหมายที่ได้รับบริการ ปี 2554</th>
+
+	 <th rowspan=2></th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+
+	</tr>
+	<tr>
+	<th>ไตรมาส 1</th><th>ไตรมาส 2</th><th>ไตรมาส 3</th><th>ไตรมาส 4</th>
+</tr>
+
+<% @lr75s.each do |lr75| %>
+  <tr>
+    <!-- <td><%= lr75.user_id %></td> -->
+    <td><%= lr75.service_name %></td>
+    <td><%= lr75.q1 %></td>
+    <td><%= lr75.q2 %></td>
+    <td><%= lr75.q3 %></td>
+    <td><%= lr75.q4 %></td>
+    <td><%= link_to 'แสดง', lr75 %></td>
+    <td><%= link_to 'แก้ไข', edit_lr75_path(lr75) %></td>
+    <td><%= link_to 'ลบ', lr75, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lr75', new_lr75_path %>
+

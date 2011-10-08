@@ -1,0 +1,44 @@
+<h3>จำนวนเยาวชนรับบริการสุขภาพสังคม</h3>
+<%= form_for(@lr75) do |f| %>
+  <% if @lr75.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lr75.errors.count, "error") %> prohibited this lr75 from being saved:</h2>
+
+      <ul>
+      <% @lr75.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div> -->
+  <%= hidden_field_tag 'lr75[user_id]', current_user.id %>
+  <div class="field">
+    <%= f.label :service_name, "บริการสุขภาพสังคม" %><br />
+    <%= f.text_field :service_name %>
+  </div>
+  <div class="field">
+    <%= f.label :q1, "ไตรมาส 1" %><br />
+    <%= f.text_field :q1 %>
+  </div>
+  <div class="field">
+    <%= f.label :q2, "ไตรมาส 2" %><br />
+    <%= f.text_field :q2 %>
+  </div>
+  <div class="field">
+    <%= f.label :q3, "ไตรมาส 3" %><br />
+    <%= f.text_field :q3 %>
+  </div>
+  <div class="field">
+    <%= f.label :q4, "ไตรมาส 4" %><br />
+    <%= f.text_field :q4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

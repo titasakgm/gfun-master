@@ -1,0 +1,15 @@
+<h3>รายชื่อโครงการตามเหตุปัจจัยและภาวะคุกคาม </h3>
+
+  <ul>
+  <% project_ids  = current_user.project2s.map { |p| p.id } %>
+  <% Factor.all.each do |ft| %>
+  <li><%= ft.title %>
+    <ol>
+    <% Project2Factor.where(:factor_id => ft.id, :project2_id => project_ids).each do |pf| %>
+    <li><%= pf.project2.title %></li>
+    <% end %>
+    </ol>
+  </li>
+  <% end %>
+  </ul>
+

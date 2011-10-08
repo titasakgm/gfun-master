@@ -1,0 +1,16 @@
+<table>
+<thead>
+<tr>
+<th>สถานประกอบการ</th><th>จำนวนเยาวชน</th>
+</tr>
+</thead>
+<tbody>
+<% @lr12s.each do |lr| %>
+<tr><td><%= lr.place.name %></td><td><span class="youth" tbl="lr12" lr12_id="<%= lr.id %>" id="youth_<%= lr.id %>" style="display: inline"><%= lr.youth_no %></span></td></tr>
+
+<% end %>
+</tbody>
+</table>
+
+<%= render :partial => "layouts/js_script" %>
+

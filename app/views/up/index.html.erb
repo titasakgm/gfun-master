@@ -1,0 +1,16 @@
+
+<h3 style="display:inline-block">Project list</h3> | <%= link_to "Project Summary", report_target_path , :target => "_blank" %>
+<br/>
+<%= link_to 'ใส่ข้อมูลตามแผนขาขึ้น', new_up_path, :class => "new_project" %>
+<% @project2s.each do |p| %>
+<div>
+<h2><%= link_to p.title, edit_project2_path(p), :class => "project_title"  %></h2>
+
+<p>
+<%= link_to 'X', p, :confirm => 'Are you sure?', :method => :delete, :class => "delete_project" %> |
+<%= link_to 'รายละเอียด', project2_path(p) %>
+</p>
+</div>
+
+<% end %>
+

@@ -1,0 +1,23 @@
+<h1>Listing threat_types</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @threat_types.each do |threat_type| %>
+  <tr>
+    <td><%= threat_type.title %></td>
+    <td><%= link_to 'แสดง', threat_type %></td>
+    <td><%= link_to 'แก้ไข', edit_threat_type_path(threat_type) %></td>
+    <td><%= link_to 'ลบ', threat_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Threat type', new_threat_type_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Community:</b>
+  <%= @communities_user.community_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @communities_user.user_id %>
+</p>
+
+<p>
+  <b>Male no:</b>
+  <%= @communities_user.male_no %>
+</p>
+
+<p>
+  <b>Female no:</b>
+  <%= @communities_user.female_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_communities_user_path(@communities_user) %> |
+<%= link_to 'Back', communities_users_path %>

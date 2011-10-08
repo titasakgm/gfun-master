@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project2_id: 1
+  target_id: 1
+
+two:
+  project2_id: 1
+  target_id: 1
+
+# == Schema Information
+#
+# Table name: project2_targets
+#
+#  id          :integer         not null, primary key
+#  project2_id :integer
+#  target_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

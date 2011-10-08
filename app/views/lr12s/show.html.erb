@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Place :</b>
+  <%= @lr12.place__id %>
+</p>
+
+<p>
+  <b>Code table:</b>
+  <%= @lr12.code_table_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @lr12.user_id %>
+</p>
+
+<p>
+  <b>Youth no:</b>
+  <%= @lr12.youth_no %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_lr12_path(@lr12) %> |
+<%= link_to 'Back', lr12s_path %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @problem.title %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @problem.type_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @problem.description %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_problem_path(@problem) %> |
+<%= link_to 'Back', problems_path %>
+

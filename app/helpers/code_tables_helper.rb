@@ -1,0 +1,2 @@
+module CodeTablesHelper
+end

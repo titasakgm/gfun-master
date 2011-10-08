@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  project_name: MyString
+  project_budget: 1
+  dev_budget: 1
+  budget: 1
+  sponsor: MyText
+
+two:
+  user_id: 1
+  project_name: MyString
+  project_budget: 1
+  dev_budget: 1
+  budget: 1
+  sponsor: MyText
+
+# == Schema Information
+#
+# Table name: lb402556s
+#
+#  id             :integer         not null, primary key
+#  user_id        :integer
+#  project_name   :string(255)
+#  project_budget :integer
+#  dev_budget     :integer
+#  budget         :integer
+#  sponsor        :text
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+

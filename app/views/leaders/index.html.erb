@@ -1,0 +1,23 @@
+<h1>Listing leaders</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @leaders.each do |leader| %>
+  <tr>
+    <td><%= leader.title %></td>
+    <td><%= link_to 'แสดง', leader %></td>
+    <td><%= link_to 'แก้ไข', edit_leader_path(leader) %></td>
+    <td><%= link_to 'ลบ', leader, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Leader', new_leader_path %>

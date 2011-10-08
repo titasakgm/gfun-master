@@ -1,0 +1,25 @@
+<h1>Listing project2_factors</h1>
+
+<table>
+  <tr>
+    <th>Project2</th>
+    <th>Factor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project2_factors.each do |project2_factor| %>
+  <tr>
+    <td><%= project2_factor.project2_id %></td>
+    <td><%= project2_factor.factor_id %></td>
+    <td><%= link_to 'แสดง', project2_factor %></td>
+    <td><%= link_to 'แก้ไข', edit_project2_factor_path(project2_factor) %></td>
+    <td><%= link_to 'ลบ', project2_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project2 factor', new_project2_factor_path %>

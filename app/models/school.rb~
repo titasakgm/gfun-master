@@ -1,0 +1,6 @@
+class School < ActiveRecord::Base
+	belongs_to :ladmin
+	belongs_to :amphur
+	belongs_to :province
+end
+

@@ -1,0 +1,10 @@
+<table>
+<caption>จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะ</caption>
+<tr>
+<th>ประเภททีมงานที่ต้องใช้</th><th>จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะในปี 2554</th><th>จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะในปี 2555</th><th>จำนวนทีมงานที่มีแผนพัฒนาสมรรถนะในปี 2556</th>
+</tr>
+<% ApplicationController::TEAM_TYPE.each do |k,v| %>
+<tr><td><%= k %></td><td><%= current_user.lb202554s.where("team_type = '#{v}'").sum(:pd_team_no) %></td><td><%= current_user.lb202555s.where("team_type = '#{v}'").sum(:pd_team_no) %></td><td><%= current_user.lb202556s.where("team_type = '#{v}'").sum(:pd_team_no) %></td></tr>
+<% end %>
+</table>
+

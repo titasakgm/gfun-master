@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Factor:</b>
+  <%= @factors_project.factor_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @factors_project.project_id %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_factors_project_path(@factors_project) %> |
+<%= link_to 'Back', factors_projects_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project2:</b>
+  <%= @project2_budget_src.project2_id %>
+</p>
+
+<p>
+  <b>Budget src:</b>
+  <%= @project2_budget_src.budget_src_id %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%= @project2_budget_src.budget %>
+</p>
+
+<p>
+  <b>Nyear:</b>
+  <%= @project2_budget_src.nyear %>
+</p>
+
+
+<%= link_to 'แก้ไข', edit_project2_budget_src_path(@project2_budget_src) %> |
+<%= link_to 'Back', project2_budget_srcs_path %>

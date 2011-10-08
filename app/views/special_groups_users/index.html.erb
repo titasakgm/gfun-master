@@ -1,0 +1,28 @@
+<h1>เยาวชนกลุ่มเปราะบาง</h1>
+
+<table>
+  <tr>
+    <th>กลุ่มเปราะบาง</th>
+    <th>สถานะ</th>
+    <th>จำนวน</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @special_groups_users.each do |special_groups_user| %>
+  <tr>
+    <td><%= special_groups_user.special_group.title  rescue nil %></td>
+     <td><%= SpecialGroupsUser::FLAG_DEF[special_groups_user.flag] %></td>
+    <td><%= special_groups_user.amount %></td>
+    <td><%= link_to 'แสดง', special_groups_user %></td>
+    <td><%= link_to 'แก้ไข', edit_special_groups_user_path(special_groups_user) %></td>
+    <td><%= link_to 'ลบ', special_groups_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'เพิ่มกลุ่มเปราะบาง', new_special_groups_user_path %>
+

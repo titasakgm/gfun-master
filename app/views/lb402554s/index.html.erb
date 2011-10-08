@@ -1,0 +1,32 @@
+<h1>Listing lb402554s</h1>
+
+<table>
+<caption>งบประมาณสำหรับโครงการและการพัฒนาสมรรถนะสำหรับแผนขาขึ้น 2554</caption>
+  <tr>
+    <th>ชื่อโครงการ/กิจกรรม</th><th>งบประมาณที่ต้องใช้ในการจัดกิจกรรมโครงการ</th><th>งบประมาณที่ต้องใช้ในการพัฒนาสมรรถนะทีมงาน</th>
+    <th>งบประมาณที่ต้องใช้รวม</th><th>หน่วยงานที่จะสนับสนุนงบประมาณ</th>
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lb402554s.each do |lb402554| %>
+  <tr>
+    <!-- <td><%= lb402554.user_id %></td> -->
+    <td><%= lb402554.project_name %></td>
+    <td><%= lb402554.project_budget %></td>
+    <td><%= lb402554.dev_budget %></td>
+    <td><%= lb402554.budget %></td>
+    <td><%= lb402554.sponsor %></td>
+    <td><%= link_to 'แสดง', lb402554 %></td>
+    <td><%= link_to 'แก้ไข', edit_lb402554_path(lb402554) %></td>
+    <td><%= link_to 'ลบ', lb402554, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lb402554', new_lb402554_path %>
+

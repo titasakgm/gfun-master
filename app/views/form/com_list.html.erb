@@ -1,0 +1,29 @@
+<table>
+<thead>
+<tr>
+<th>ชุมชน</th><th>จำนวนเยาวชน</th>
+</tr>
+</thead>
+<tbody>
+<% @lr13s.each do |lr| %>
+<tr><td><%= lr.community.name %></td><td><span class="com" tbl="lr13" lr13_id="<%= lr.id %>" id="com_<%= lr.id %>" style="display: inline"><%= lr.youth_no %></span> <a href="/form/delete_com/<%= lr.id %>">delete</a></td></tr>
+
+<% end %>
+</tbody>
+</table>
+<script>
+$(function(){
+$(".com").each(function(){
+            var tbl_name = $(this).attr("tbl");
+            var id = $(this).attr("lr13_id")
+            //console.log(id);
+            $(this).editable("/form/save_value", {
+              submitdata : {tbl: tbl_name, lr13_id : id},
+              width:"70px",
+              style:"inherit",
+            });
+
+          });
+});
+</script>
+
